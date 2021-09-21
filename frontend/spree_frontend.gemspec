@@ -1,10 +1,10 @@
 # encoding: UTF-8
-require_relative '../core/lib/spree/core/version.rb'
+require_relative 'lib/spree/frontend/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_frontend'
-  s.version     = Spree.version
+  s.version     = Spree::Frontend.version
   s.authors     = ['Sean Schofield', 'Spark Solutions']
   s.email       = 'hello@spreecommerce.org'
   s.summary     = 'The default Storefront built with Rails and Turbolinks for Spree eCommerce platform'
