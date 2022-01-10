@@ -63,7 +63,6 @@ describe 'Address', type: :feature, inaccessible: true do
         context 'without checkout_zone' do
           before do
             store.update(checkout_zone_id: nil)
-            Spree::Config.preference_default(:checkout_zone)
           end
 
           it 'address form contain selected zone' do
@@ -75,25 +74,9 @@ describe 'Address', type: :feature, inaccessible: true do
       end
     end
 
-    context 'when checkout_zone is set by preference' do
-      before do
-        store.update(checkout_zone_id: nil)
-        Spree::Config[:checkout_zone] = eu_vat_zone.name
-
-        add_to_cart(mug) do
-          click_link 'Checkout'
-        end
-      end
-
-      it 'address form contain selected zone' do
-        expect(page.find('#order_bill_address_attributes_country_id').text).to eq 'Denmark'
-      end
-    end
-
     context 'when checkout_zone is not set in store or via preference' do
       before do
         store.update(checkout_zone_id: nil)
-        Spree::Config.preference_default(:checkout_zone)
 
         add_to_cart(mug) do
           click_link 'Checkout'
