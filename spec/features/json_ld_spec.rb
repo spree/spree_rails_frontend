@@ -39,7 +39,6 @@ describe 'JSON-LD hashes', type: :feature, inaccessible: true do
   end
 
   before do
-    create(:store)
     visit spree.root_path
   end
 

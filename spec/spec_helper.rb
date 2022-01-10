@@ -95,7 +95,7 @@ RSpec.configure do |config|
     country = create(:country, name: 'United States of America', iso_name: 'UNITED STATES', iso: 'US', states_required: true)
     Spree::Config[:default_country_id] = country.id
 
-    create(:store, default: true)
+    create(:store, default: true, default_currency: 'USD', default_country: country)
     create(:taxon, permalink: 'trending')
     create(:taxon, permalink: 'bestsellers')
   end
