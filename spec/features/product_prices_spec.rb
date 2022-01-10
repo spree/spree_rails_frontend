@@ -9,6 +9,7 @@ describe 'Product with prices in multiple currencies', type: :feature, js: true 
       before do
         create(:price, variant: product.master, currency: 'EUR', amount: 16.00)
         create(:price, variant: product.master, currency: 'GBP', amount: 23.00)
+        Rails.cache.clear
       end
 
       it 'can switch by currency', :js do

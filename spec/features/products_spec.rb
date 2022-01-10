@@ -208,6 +208,7 @@ describe 'Visiting Products', type: :feature, inaccessible: true do
 
     before do
       product.master.stock_items.update_all count_on_hand: 0, backorderable: false
+      product.master.touch # expire cache
     end
 
     it 'does display out of stock for master product' do
