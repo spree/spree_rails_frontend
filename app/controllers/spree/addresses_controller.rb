@@ -45,11 +45,11 @@ module Spree
     end
 
     def create_service
-      Spree::Dependencies.account_create_address_service.constantize
+      Spree::Dependencies.address_create_service.constantize
     end
 
     def update_service
-      Spree::Dependencies.account_update_address_service.constantize
+      Spree::Dependencies.address_update_service.constantize
     end
   end
 end
