@@ -486,6 +486,7 @@ describe 'Visiting Products', type: :feature, inaccessible: true do
       product.variants << [variant1, variant2, variant3]
       product.tap(&:save)
       product.stock_items.last.update count_on_hand: 0, backorderable: false
+      Rails.cache.clear
     end
 
     context 'Make sure the requested variant', js: true do

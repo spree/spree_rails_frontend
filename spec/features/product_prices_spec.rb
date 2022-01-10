@@ -37,6 +37,7 @@ describe 'Product with prices in multiple currencies', type: :feature, js: true 
     context 'product with price in GBP' do
       before do
         create(:price, variant: product.master, amount: 8.99, currency: 'GBP')
+        Rails.cache.clear
       end
 
       it 'renders the GBP price' do
