@@ -2,7 +2,7 @@
   SpreePaths = <%==
   {
     mounted_at: Rails.application.routes.url_helpers.spree_path(trailing_slash: true),
-    admin: Spree.admin_path.gsub(/\A(\/)?(.*[^\/])(\/)?\z/, '\\2/')
+    admin: Spree.respond_to?(:admin_path) ? Spree.admin_path.gsub(/\A(\/)?(.*[^\/])(\/)?\z/, '\\2/') : '/admin'
   }.to_json
   %>
 </script>
