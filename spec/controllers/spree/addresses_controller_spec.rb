@@ -41,7 +41,7 @@ describe Spree::AddressesController, type: :controller do
       end
 
       it 'creates address' do
-        expect{ post_create }.to change { Spree::Address.count }.by(1)
+        expect{ post_create }.to change { user.addresses.count }
       end
 
       it 'sets flash message' do
@@ -58,7 +58,7 @@ describe Spree::AddressesController, type: :controller do
       end
 
       it 'does not create address' do
-        expect{ post_create }.to change { Spree::Address.count }.by(0)
+        expect{ post_create }.not_to change { user.addresses.count }
       end
 
       it 'returns 200 status code' do
