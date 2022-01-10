@@ -42,10 +42,6 @@ run_tests: &run_tests
         command: |
           bundle exec rake test_app
     - run:
-        name: Unlink NPM package
-        command: |
-          cd spec/dummy && yarn unlink @spree/dashboard
-    - run:
           name: Run Rspec
           command: |
             TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
@@ -81,10 +77,6 @@ run_tests_3_0: &run_tests_3_0
         name: Create test app
         command: |
           bundle exec rake test_app
-    - run:
-        name: Unlink NPM package
-        command: |
-          cd spec/dummy && yarn unlink @spree/dashboard
     - run:
           name: Run Rspec
           command: |
