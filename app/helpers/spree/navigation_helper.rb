@@ -67,7 +67,7 @@ module Spree
                         "/#{I18n.locale}"
                       end
 
-      if Spree::MenuItem::DYNAMIC_RESOURCE_TYPE.include? item.linked_resource_type
+      if ['Spree::Product', 'Spree::Taxon', 'Spree::CmsPage'].include?(item.linked_resource_type)
         output_locale.to_s + item.link
       elsif item.linked_resource_type == 'Home Page'
         "/#{locale_param}"

@@ -8,12 +8,12 @@ describe 'setting locale', type: :feature, js: true do
   let!(:fr_main_menu) { create(:menu, name: 'Main Menu', locale: 'fr', store_id: store.id) }
 
   let!(:en_menu_item_url) { create(:menu_item, name: 'URL in English', menu_id: en_main_menu.id, destination: 'https://spree.com') }
-  let!(:en_menu_item_home) { create(:menu_item, name: 'Home in English', menu_id: en_main_menu.id, linked_resource_type: 'Home Page') }
+  let!(:en_menu_item_home) { create(:menu_item, name: 'Home in English', menu_id: en_main_menu.id, linked_resource_type: 'Spree::Linkable::Homepage') }
   let!(:en_menu_item_taxon) { create(:menu_item, name: 'Taxon in English', menu_id: en_main_menu.id, linked_resource_type: 'Spree::Taxon') }
   let!(:en_menu_item_product) { create(:menu_item, name: 'Product in English', menu_id: en_main_menu.id, linked_resource_type: 'Spree::Product') }
 
   let!(:fr_menu_item_url) { create(:menu_item, name: 'URL in French', menu_id: fr_main_menu.id, destination: 'https://spree.com') }
-  let!(:fr_menu_item_home) { create(:menu_item, name: 'Home in French', menu_id: fr_main_menu.id, linked_resource_type: 'Home Page') }
+  let!(:fr_menu_item_home) { create(:menu_item, name: 'Home in French', menu_id: fr_main_menu.id, linked_resource_type: 'Spree::Linkable::Homepage') }
   let!(:fr_menu_item_taxon) { create(:menu_item, name: 'Taxon in French', menu_id: fr_main_menu.id, linked_resource_type: 'Spree::Taxon') }
   let!(:fr_menu_item_product) { create(:menu_item, name: 'Product in French', menu_id: fr_main_menu.id, linked_resource_type: 'Spree::Product') }
 
