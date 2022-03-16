@@ -1,10 +1,8 @@
 require 'spec_helper'
-require 'spree/api/testing_support/helpers'
 
 describe 'Ensure Cart Spec', type: :request do
-  include Spree::Api::TestingSupport::Helpers
-
   let(:exec_post) { post '/ensure_cart' }
+  let(:json_response) { JSON.parse(response.body) }
 
   shared_examples 'returns current order' do
     it 'with 200 HTTP status' do
