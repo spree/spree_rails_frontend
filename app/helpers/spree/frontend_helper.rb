@@ -9,12 +9,18 @@ module Spree
     end
 
     def logo(image_path = nil, options = {})
-      image_path ||= if current_store.logo.attached? && current_store.logo.variable?
-                       main_app.url_for(current_store.logo.variant(resize: '244x104>'))
-                     elsif current_store.logo.attached? && current_store.logo.image?
+      logo_attachment = if defined?(Spree::StoreLogo) && current_store.logo.is_a?(Spree::StoreLogo)
+                          current_store.logo.attachment # Spree v5
+                        else
+                          current_store.logo # Spree 4.x
+                        end
+
+      image_path ||= if logo_attachment&.attached? && logo_attachment&.variable?
+                       main_app.url_for(logo_attachment.variant(resize: '244x104>'))
+                     elsif logo_attachment&.attached? && logo_attachment&.image?
                        main_app.url_for(current_store.logo)
                      else
-                      'logo/spree_50.png'
+                       'logo/spree_50.png'
                      end
 
       path = spree.respond_to?(:root_path) ? spree.root_path : main_app.root_path
