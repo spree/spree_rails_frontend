@@ -16,13 +16,15 @@ describe 'Template rendering', type: :feature do
 
   describe 'favicon link' do
     let(:store) { Spree::Store.default }
-    let(:favicon_link) { find('link[rel="shortcut icon"]', visible: false) }
+    let(:favicon_link) { find('link[rel="icon"]', visible: false) }
 
     context 'when a store has its own favicon' do
       let(:favicon_attachment) { Rack::Test::UploadedFile.new(file_fixture('store_favicon.ico')) }
 
       before do
-        store.favicon_image.attach(favicon_attachment)
+        store.build_favicon_image.attachment.attach(favicon_attachment)
+        store.favicon_image.save
+        store.save
       end
 
       it 'builds a store favicon link' do

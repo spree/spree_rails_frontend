@@ -531,14 +531,14 @@ describe 'Visiting Products', type: :feature, inaccessible: true do
     let(:prop2) { create(:property, name: 'Product Brand', presentation: 'Presentation Brand') }
 
     let(:product) do
-      FactoryBot.create(:base_product, properties: [prop1, prop2], description: 'Testing Product Properties', name: 'Sample Product')
+      product = FactoryBot.create(:base_product, description: 'Testing Product Properties', name: 'Sample Product')
+      create(:product_property, value: '9377-AMZ-1837', product: product, property: prop1, show_property: false)
+      create(:product_property, value: 'Funky Seagull', product: product, property: prop2)
+      product.save
+      product
     end
 
     before do
-      product.tap(&:save)
-      product.product_properties.first.update(value: '9377-AMZ-1837', show_property: false)
-      product.product_properties.last.update(value: 'Funky Seagull')
-
       visit spree.product_path(product)
     end
 

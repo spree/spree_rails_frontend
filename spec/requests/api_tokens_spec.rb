@@ -1,8 +1,7 @@
 require 'spec_helper'
-require 'spree/api/testing_support/helpers'
 
 describe 'API Tokens Spec', type: :request do
-  include Spree::Api::TestingSupport::Helpers
+  let(:json_response) { JSON.parse(response.body) }
 
   shared_examples 'returns valid response' do
     it 'with 200 HTTP status' do

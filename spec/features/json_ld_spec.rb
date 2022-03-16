@@ -46,7 +46,7 @@ describe 'JSON-LD hashes', type: :feature, inaccessible: true do
     before { visit spree.products_path }
 
     it_behaves_like 'it contains products in JSON-LD hash',
-                    Spree::Product.active.all
+                    Spree::Product.active('USD').all
   end
 
   context 'product page' do

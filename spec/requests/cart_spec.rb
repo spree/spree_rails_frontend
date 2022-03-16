@@ -1,9 +1,6 @@
 require 'spec_helper'
-require 'spree/api/testing_support/helpers'
 
 describe 'Cart Indicator Spec', type: :request do
-  include Spree::Api::TestingSupport::Helpers
-
   let(:exec_get) { get '/cart_link' }
 
   shared_examples 'returns 0' do
