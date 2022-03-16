@@ -1,3 +1,5 @@
+require_relative 'configuration'
+
 module Spree
   module Frontend
     class Engine < ::Rails::Engine
@@ -15,14 +17,7 @@ module Spree
       end
 
       initializer 'spree.frontend.environment', before: :load_config_initializers do |_app|
-        Spree::Frontend::Config = Spree::FrontendConfiguration.new
-      end
-
-      initializer 'spree.frontend.checking_deprecated_preferences' do
-        Spree::Frontend::Config.deprecated_preferences.each do |pref|
-          # FIXME: we should only notify about deprecated preferences that are in use, not all of them
-          # warn "[DEPRECATION] Spree::Frontend::Config[:#{pref[:name]}] is deprecated. #{pref[:message]}"
-        end
+        Spree::Frontend::Config = Spree::Frontend::Configuration.new
       end
     end
   end
