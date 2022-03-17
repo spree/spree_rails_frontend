@@ -69,11 +69,11 @@ Spree.ready(function($) {
         var stateSpanRequired = statePara.find('abbr')
 
         if (states.length > 0) {
-          selected = stateSelect.val().toString()
+          selected = stateSelect.val()
           stateSelect.html('')
           $.each(states, function(idx, state) {
-            var opt = $(document.createElement('option')).attr('value', state.id).html(state.name)
-            if (selected === state.id.toString()) {
+            var opt = $(document.createElement('option')).attr('value', state.id.toString()).html(state.name)
+            if (selected && selected.toString() === state.id.toString()) {
               opt.prop('selected', true)
             }
             stateSelect.append(opt)
