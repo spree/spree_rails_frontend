@@ -26,7 +26,7 @@ Spree.loadsCarouselElements = function () {
   $('div[data-product-carousel-taxon-id]').each(function (_index, element) { Spree.loadCarousel(element, this) })
 }
 
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbo:load', function () {
   var carouselPresent = $('div[data-product-carousel-taxon-id]')
 
   if (carouselPresent.length) {

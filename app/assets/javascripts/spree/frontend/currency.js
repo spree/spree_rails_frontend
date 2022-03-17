@@ -1,12 +1,11 @@
-document.addEventListener('turbolinks:load', function(event) {
-  // this condition checks if this is the first initial load of turbolinks application
+document.addEventListener('turbo:load', function(event) {
+  // this condition checks if this is the first initial load of turbo application
   if (!event.data.timing.visitStart) {
     var currencySelect = document.querySelectorAll('select[name=switch_to_currency]')
 
     if (currencySelect.length) {
       currencySelect.forEach(function (element) {
         element.addEventListener('change', function () {
-          Spree.showProgressBar()
           var newCurrency = this.value
 
           // we need to make AJAX call here to the backend to set currency in session
@@ -28,7 +27,7 @@ document.addEventListener('turbolinks:load', function(event) {
 
 // fix back button issue with different currency set
 // invalidate page if cached page has different currency then the current one
-document.addEventListener('turbolinks:load', function(event) {
+document.addEventListener('turbo:load', function(event) {
   if (typeof (SPREE_DEFAULT_CURRENCY) !== 'undefined' && typeof (SPREE_CURRENCY) !== 'undefined') {
     if (SPREE_CURRENCY === SPREE_DEFAULT_CURRENCY) {
       var regexAnyCurrency = new RegExp('currency=')

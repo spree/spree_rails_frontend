@@ -16,7 +16,7 @@ globals:
   SpreePaths: true
   CouponManager: true
   ThumbnailsCarousel: true
-  Turbolinks: true
+  Turbo: true
   ADDRESS_FIELDS: true
   AUTH_TOKEN: true
   SPREE_LOCALE: true

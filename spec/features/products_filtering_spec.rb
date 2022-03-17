@@ -48,12 +48,12 @@ describe 'Products filtering', :js do
 
     if value.present?
       filter_element.click_link(value)
-      wait_for_turbolinks
+      wait_for_turbo
     end
   end
 
-  def wait_for_turbolinks
-    expect(page).to have_no_css '.turbolinks-progress-bar'
+  def wait_for_turbo
+    expect(page).to have_no_css '.turbo-progress-bar'
   end
 
   def have_selected_filter_with(value:)

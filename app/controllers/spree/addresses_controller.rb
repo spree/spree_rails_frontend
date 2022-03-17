@@ -10,7 +10,7 @@ module Spree
         flash[:notice] = I18n.t(:successfully_created, scope: :address_book)
         redirect_to spree.account_path
       else
-        render action: 'new'
+        render action: 'new', status: :unprocessable_entity
       end
     end
 
@@ -27,7 +27,7 @@ module Spree
         flash[:notice] = Spree.t(:successfully_updated, scope: :address_book)
         redirect_back_or_default(addresses_path)
       else
-        render :edit
+        render :edit, status: :unprocessable_entity
       end
     end
 

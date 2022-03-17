@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Spree::Frontend.version
   s.authors     = ['Sean Schofield', 'Spark Solutions']
   s.email       = 'hello@spreecommerce.org'
-  s.summary     = 'The default Storefront built with Rails and Turbolinks for Spree eCommerce platform'
+  s.summary     = 'The default Storefront built with Rails and Turbo/Hotwire for Spree eCommerce platform'
   s.description = s.summary
   s.homepage    = 'https://spreecommerce.org'
   s.license     = 'BSD-3-Clause'
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'inline_svg',      '~> 1.5'
   s.add_dependency 'jquery-rails',    '~> 4.3'
   s.add_dependency 'sass-rails',      '>= 5'
-  s.add_dependency 'turbolinks',      '~> 5.2'
+  s.add_dependency 'turbo-rails'
   s.add_dependency 'responders'
   s.add_dependency 'sprockets', '~> 4.0'
 

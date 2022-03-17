@@ -46,7 +46,7 @@ module Spree
           redirect_to spree.checkout_state_path(@order.state)
         end
       else
-        render :edit
+        render :edit, status: :unprocessable_entity
       end
     end
 
@@ -124,7 +124,7 @@ module Spree
     def ensure_sufficient_stock_lines
       if @order.insufficient_stock_lines.present?
         flash[:error] = Spree.t(:inventory_error_flash_for_insufficient_quantity)
-        redirect_to spree.cart_path
+        redirect_to spree.cart_path, status: :unprocessable_entity
       end
     end
 
@@ -190,7 +190,7 @@ module Spree
     def rescue_from_spree_gateway_error(exception)
       flash.now[:error] = Spree.t(:spree_gateway_error_flash_for_checkout)
       @order.errors.add(:base, exception.message)
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
 
     def check_authorization

@@ -35,7 +35,7 @@ Spree.ready(function ($) {
         '?' +
         customEncodeURI(decodeURIComponent(searchParams.toString()))
     );
-    Turbolinks.visit(location);
+    Turbo.visit(location);
   }
 
   function updateFilters(event, $this, removeValue) {

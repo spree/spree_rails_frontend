@@ -11,7 +11,7 @@
 //= require ./lazysizes.config
 //= require lazysizes.min
 //= require accounting.min
-//= require turbolinks
+//= require turbo
 //= require spree/frontend/account
 //= require spree/frontend/api_tokens
 //= require spree/frontend/carousel-noconflict
@@ -40,7 +40,7 @@
 //= require spree/frontend/views/spree/shared/nav_bar
 //= require spree/frontend/views/spree/shared/product_added_modal
 //= require spree/frontend/views/spree/shared/quantity_select
-//= require spree/frontend/turbolinks_scroll_fix
+//= require spree/frontend/turbo_scroll_fix
 //= require spree/frontend/main_nav_bar
 //= require spree/frontend/login
 
@@ -55,16 +55,10 @@ Spree.routes.product_carousel = function (taxonId) { return Spree.localizedPathF
 Spree.routes.set_locale = function(locale) { return Spree.pathFor('locale/set?switch_to_locale=' + locale) }
 Spree.routes.set_currency = function(currency) { return Spree.pathFor('currency/set?switch_to_currency=' + currency) }
 
-Spree.showProgressBar = function () {
-  if (!Turbolinks.supported) { return }
-  Turbolinks.controller.adapter.progressBar.setValue(0)
-  Turbolinks.controller.adapter.progressBar.show()
-}
-
 Spree.clearCache = function () {
-  if (!Turbolinks.supported) { return }
+  if (!window.Turbo) { return }
 
-  Turbolinks.clearCache()
+  Turbo.clearCache()
 }
 
 Spree.setCurrency = function (currency) {
@@ -81,5 +75,5 @@ Spree.setCurrency = function (currency) {
 
   SPREE_CURRENCY = currency
 
-  Turbolinks.visit(window.location.pathname + queryString, { action: 'replace' })
+  Turbo.visit(window.location.pathname + queryString, { action: 'replace' })
 }
