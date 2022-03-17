@@ -124,7 +124,7 @@ module Spree
     def ensure_sufficient_stock_lines
       if @order.insufficient_stock_lines.present?
         flash[:error] = Spree.t(:inventory_error_flash_for_insufficient_quantity)
-        redirect_to spree.cart_path, status: :unprocessable_entity
+        redirect_to spree.cart_path
       end
     end
 

@@ -3,10 +3,6 @@ require 'spec_helper'
 describe 'Products sorting', type: :feature, js: true, retry: 3 do
   let(:store) { Spree::Store.default }
 
-  def wait_for_turbo
-    expect(page).to have_no_css '.turbo-progress-bar'
-  end
-
   def apply_sorting(sort_by)
     dropdown_element = find('div.plp-sort')
 

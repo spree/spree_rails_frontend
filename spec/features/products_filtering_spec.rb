@@ -52,10 +52,6 @@ describe 'Products filtering', :js do
     end
   end
 
-  def wait_for_turbo
-    expect(page).to have_no_css '.turbo-progress-bar'
-  end
-
   def have_selected_filter_with(value:)
     have_css '.plp-overlay-card-item--selected', text: value
   end
