@@ -8,7 +8,7 @@ this.initializeQueryParamsCheck = function () {
 
 function verifyVariantIdMatch() {
   this.variants.forEach(function(variant) {
-    if (parseInt(variant.id) === parseInt(variantIdFromUrl)) this.urlQueryMatchFound = true
+    if (variant.id.toString() === variantIdFromUrl.toString()) this.urlQueryMatchFound = true
   })
 }
 
@@ -23,7 +23,7 @@ this.setSelectedVariantFromUrl = function () {
 
 this.getVariantOptionsById = function(variantIdFromUrl) {
   this.variants.forEach(function(variant) {
-    if (parseInt(variant.id) === parseInt(variantIdFromUrl)) this.sortOptionValues(variant.option_values)
+    if (variant.id.toString() === variantIdFromUrl.toString()) this.sortOptionValues(variant.option_values)
   })
 }
 
@@ -36,7 +36,7 @@ function buildArray(item) {
   var target = container.querySelectorAll('.product-variants-variant-values-radio')
 
   target.forEach(function(inputTag) {
-    if (parseInt(inputTag.value) === item.id && inputTag.dataset.presentation === item.presentation) {
+    if (inputTag.value.toString() === item.id.toString() && inputTag.dataset.presentation === item.presentation) {
       this.selectedOptions.push(inputTag)
     }
   })
