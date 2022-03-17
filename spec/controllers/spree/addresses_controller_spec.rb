@@ -61,10 +61,10 @@ describe Spree::AddressesController, type: :controller do
         expect{ post_create }.not_to change { user.addresses.count }
       end
 
-      it 'returns 200 status code' do
+      it 'returns 422 status code' do
         post_create
 
-        expect(response.status).to eq(200)
+        expect(response.status).to eq(422)
       end
 
       it 'renders address form template' do

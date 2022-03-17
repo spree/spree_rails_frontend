@@ -1,6 +1,6 @@
 # Spree (Legacy) Frontend
 
-This is the old Spree Storefront extracted from Spree < 4.3.
+This is the old Spree Storefront extracted from Spree < 4.3 which was upgraded to Turbo/Hotwire.
 
 ## Installation
 
@@ -16,6 +16,8 @@ Run:
 
 ```bash
 bundle install
+bin/rails g jsbundling:esbuild:install
+bin/rails g turbo:install
 bin/rails g spree:frontend:install
 ```
 

@@ -16,7 +16,7 @@
   // Invalidate the page when the next page is different from the current page
   // Persist scroll information across pages
   document.addEventListener('turbo:before-visit', function (event) {
-    if (event.data.url !== location.href) {
+    if (event.detail.url !== location.href) {
       sessionStorage.setItem(PAGE_INVALIDATED, 'true')
     }
     sessionStorage.setItem(SCROLL_POSITION, JSON.stringify(scrollData()))

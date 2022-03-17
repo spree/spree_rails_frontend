@@ -1,6 +1,6 @@
 document.addEventListener('turbo:load', function(event) {
   // this condition checks if this is the first initial load of turbo application
-  if (!event.data.timing.visitStart) {
+  if (!event.detail.timing.visitStart) {
     var currencySelect = document.querySelectorAll('select[name=switch_to_currency]')
 
     if (currencySelect.length) {
@@ -31,12 +31,12 @@ document.addEventListener('turbo:load', function(event) {
   if (typeof (SPREE_DEFAULT_CURRENCY) !== 'undefined' && typeof (SPREE_CURRENCY) !== 'undefined') {
     if (SPREE_CURRENCY === SPREE_DEFAULT_CURRENCY) {
       var regexAnyCurrency = new RegExp('currency=')
-      if (event.data.url.match(regexAnyCurrency) && !event.data.url.match(SPREE_CURRENCY)) {
+      if (event.detail.url.match(regexAnyCurrency) && !event.detail.url.match(SPREE_CURRENCY)) {
         Spree.setCurrency(SPREE_CURRENCY)
       }
     } else {
       var regex = new RegExp('currency=' + SPREE_CURRENCY)
-      if (!event.data.url.match(regex)) {
+      if (!event.detail.url.match(regex)) {
         Spree.setCurrency(SPREE_CURRENCY)
       }
     }
