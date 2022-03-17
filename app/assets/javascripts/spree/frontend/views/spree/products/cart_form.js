@@ -104,7 +104,7 @@ function CartForm($, $cartForm) {
         .find(OPTION_VALUE_SELECTOR)
         .each(function(_index, ov) {
           var $ov = $(ov)
-          var id = parseInt($ov.val())
+          var id = $ov.val().toString()
 
           $ov.prop('checked', false)
           $ov.prop('disabled', !availableOptionValueIds.includes(id))
@@ -121,7 +121,7 @@ function CartForm($, $cartForm) {
 
     return this.variants.reduce(function(acc, variant) {
       var optionValues = variant.option_values.map(function(ov) {
-        return ov.id
+        return ov.id.toString()
       })
 
       var isPossibleVariantFound = selectedOptionValueIds.every(function(ov) {
@@ -180,7 +180,7 @@ function CartForm($, $cartForm) {
 
     if (!this.withOptionValues) {
       return this.variants.find(function(variant) {
-        return variant.id === parseInt(self.$variantIdInput.val())
+        return variant.id.toString() === self.$variantIdInput.val().toString()
       })
     }
 

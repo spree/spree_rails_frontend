@@ -53,11 +53,6 @@ group :test, :development do
   gem 'ffaker'
 end
 
-group :development do
-  gem 'github_fast_changelog'
-  gem 'solargraph'
-end
-
 spree_opts = { github: 'spree/spree', branch: ENV.fetch('SPREE_BRANCH', 'main') }
 gem 'spree_core', spree_opts
 gem 'spree_api', spree_opts
