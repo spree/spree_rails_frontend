@@ -14,26 +14,26 @@
 
         <!-- SM to MD -->
         <img class="d-block d-md-none lazyload"
-          data-src="<%= main_app.url_for(section.img_one_sm) %>"
-          data-srcset="<%= main_app.url_for(section.img_one_sm) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_one_sm) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_one_sm) %>"
           alt="<%= section&.title %>">
 
         <!-- MD to LG -->
         <img class="d-none d-md-block d-lg-none lazyload"
-          data-src="<%= main_app.url_for(section.img_one_md) %>"
-          data-srcset="<%= main_app.url_for(section.img_one_md) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_one_md) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_one_md) %>"
           alt="<%= section&.title %>">
 
         <!-- LG to XL -->
         <img class="d-none d-lg-block d-xl-none lazyload"
-          data-src="<%= main_app.url_for(section.img_one_lg) %>"
-          data-srcset="<%= main_app.url_for(section.img_one_lg) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_one_lg) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_one_lg) %>"
           alt="<%= section&.title %>">
 
         <!-- XL UP -->
         <img class="d-none d-xl-block lazyload"
-          data-src="<%= main_app.url_for(section.img_one_xl) %>"
-          data-srcset="<%= main_app.url_for(section.img_one_xl) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_one_xl) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_one_xl) %>"
           alt="<%= section&.title %>">
 
      <% else %>

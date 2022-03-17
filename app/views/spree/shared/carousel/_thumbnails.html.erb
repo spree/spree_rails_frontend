@@ -20,7 +20,7 @@
                 data-variant-is-master="<%= image.viewable_id == @product.master.id %>"
                 data-variant-id="<%= image.viewable_id %>">
                 <%= lazy_image(
-                  src: main_app.url_for(image.url(:pdp_thumbnail)),
+                  src: main_app.cdn_image_url(image.url(:pdp_thumbnail)),
                   class: 'd-block w-100',
                   alt: image.alt || @product.name,
                   width: 57,

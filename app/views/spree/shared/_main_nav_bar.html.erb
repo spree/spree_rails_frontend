@@ -44,7 +44,7 @@
                             <%= spree_nav_link_tag(promo_banner, { class: "dropdown-item" }) do %>
                               <div class="category-image text-center my-4 mx-3">
                                 <% if promo_banner.icon.present? %>
-                                  <%= image_tag main_app.url_for(promo_banner.icon.attachment), alt: promo_banner.icon.alt ,title: promo_banner.subtitle %>
+                                  <%= image_tag main_app.cdn_image_url(promo_banner.icon.attachment), alt: promo_banner.icon.alt ,title: promo_banner.subtitle %>
                                 <% end %>
                                 <div class="category-box">
                                   <div class="category-box-small-text">

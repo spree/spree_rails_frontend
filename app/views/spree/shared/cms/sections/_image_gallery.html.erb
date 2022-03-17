@@ -68,20 +68,20 @@
 
             <!-- XS to MD -->
             <img class="d-md-none lazyload"
-              data-src="<%= main_app.url_for(section.img_one_md) %>"
-              data-srcset="<%= main_app.url_for(section.img_one_md) %>"
+              data-src="<%= main_app.cdn_image_url(section.img_one_md) %>"
+              data-srcset="<%= main_app.cdn_image_url(section.img_one_md) %>"
               alt="<%= section&.title_one %>">
 
             <!-- MD to XL -->
             <img class="d-none d-md-block d-xl-none lazyload"
-              data-src="<%= main_app.url_for(section.img_one_lg) %>"
-              data-srcset="<%= main_app.url_for(section.img_one_lg) %>"
+              data-src="<%= main_app.cdn_image_url(section.img_one_lg) %>"
+              data-srcset="<%= main_app.cdn_image_url(section.img_one_lg) %>"
               alt="<%= section&.title_one %>">
 
             <!-- XL UP -->
             <img class="d-none d-xl-block lazyload"
-              data-src="<%= main_app.url_for(section.img_one_xl) %>"
-              data-srcset="<%= main_app.url_for(section.img_one_xl) %>"
+              data-src="<%= main_app.cdn_image_url(section.img_one_xl) %>"
+              data-srcset="<%= main_app.cdn_image_url(section.img_one_xl) %>"
               alt="<%= section&.title_one %>">
         <% else %>
           <%= icon( name: 'card-image',
@@ -106,20 +106,20 @@
 
             <!-- XS to MD -->
             <img class="d-md-none lazyload"
-              data-src="<%= main_app.url_for(section.img_three_md) %>"
-              data-srcset="<%= main_app.url_for(section.img_three_md) %>"
+              data-src="<%= main_app.cdn_image_url(section.img_three_md) %>"
+              data-srcset="<%= main_app.cdn_image_url(section.img_three_md) %>"
               alt="<%= section&.title_three %>">
 
             <!-- MD to XL -->
             <img class="d-none d-md-block d-xl-none lazyload"
-              data-src="<%= main_app.url_for(section.img_three_lg) %>"
-              data-srcset="<%= main_app.url_for(section.img_three_lg) %>"
+              data-src="<%= main_app.cdn_image_url(section.img_three_lg) %>"
+              data-srcset="<%= main_app.cdn_image_url(section.img_three_lg) %>"
               alt="<%= section&.title_three %>">
 
             <!-- XL UP -->
             <img class="d-none d-xl-block lazyload"
-              data-src="<%= main_app.url_for(section.img_three_xl) %>"
-              data-srcset="<%= main_app.url_for(section.img_three_xl) %>"
+              data-src="<%= main_app.cdn_image_url(section.img_three_xl) %>"
+              data-srcset="<%= main_app.cdn_image_url(section.img_three_xl) %>"
               alt="<%= section&.title_three %>">
         <% else %>
           <%= icon( name: 'card-image',
@@ -143,20 +143,20 @@
 
         <!-- XS to MD -->
         <img class="d-md-none lazyload"
-          data-src="<%= main_app.url_for(section.img_two_md) %>"
-          data-srcset="<%= main_app.url_for(section.img_two_md) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_two_md) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_two_md) %>"
           alt="<%= section&.title_two %>">
 
         <!-- MD to XL -->
         <img class="d-none d-md-block d-xl-none lazyload"
-          data-src="<%= main_app.url_for(section.img_two_lg) %>"
-          data-srcset="<%= main_app.url_for(section.img_two_lg) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_two_lg) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_two_lg) %>"
           alt="<%= section&.title_two %>">
 
         <!-- XL UP -->
         <img class="d-none d-xl-block lazyload"
-          data-src="<%= main_app.url_for(section.img_two_xl) %>"
-          data-srcset="<%= main_app.url_for(section.img_two_xl) %>"
+          data-src="<%= main_app.cdn_image_url(section.img_two_xl) %>"
+          data-srcset="<%= main_app.cdn_image_url(section.img_two_xl) %>"
           alt="<%= section&.title_two %>">
     <% else %>
       <%= icon( name: 'file-image',
