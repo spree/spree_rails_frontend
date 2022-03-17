@@ -47,7 +47,7 @@
         data-variant-id="<%= image.viewable_id %>">
         <div class="product-carousel-item-squared <%= 'product-carousel-item-squared-only' if images.length == 1 %>">
           <% image_attrs = {
-            src: main_app.url_for(image.url(zoomed ? :zoomed : :large)),
+            src: main_app.cdn_image_url(image.url(zoomed ? :zoomed : :large)),
             alt: image.alt || @product.name,
             class: "d-block w-100",
             width: zoomed ? 650 : 475,
@@ -66,7 +66,7 @@
         data-slide-to="<%= imageIndex %>"
         class="product-carousel-indicators-indicator product-carousel-indicators-indicator--visible<%= ' active' if imageIndex == 0 %>">
         <%= lazy_image(
-          src: main_app.url_for(image.url(:pdp_thumbnail)),
+          src: main_app.cdn_image_url(image.url(:pdp_thumbnail)),
           class: 'd-block w-100',
           alt: image.alt || @product.name,
           width: image.style(:pdp_thumbnail)[:width],

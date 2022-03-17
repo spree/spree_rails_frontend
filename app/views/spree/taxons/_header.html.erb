@@ -13,7 +13,7 @@
   <% if @taxon.icon&.attachment %>
     <div class="d-none d-md-block pt-4 taxon-icon">
       <%= lazy_image(
-        src: main_app.url_for(@taxon.icon.attachment),
+        src: main_app.cdn_image_url(@taxon.icon.attachment),
         alt: @taxon.description || Spree.t('taxon_missing_alt'),
         width: 1110,
         height: 300,
