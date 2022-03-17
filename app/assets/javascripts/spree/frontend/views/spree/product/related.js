@@ -9,7 +9,7 @@ Spree.fetchRelatedProducts = function (id, htmlContainer) {
   })
 }
 
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbo:load', function () {
   var productDetailsPage = $('body#product-details')
 
   if (productDetailsPage.length) {

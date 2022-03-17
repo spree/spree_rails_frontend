@@ -25,7 +25,7 @@ module Spree
           end
         end
       else
-        respond_with(@order)
+        respond_with(@order, status: :unprocessable_entity)
       end
     end
 

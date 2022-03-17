@@ -331,7 +331,7 @@ Spree.ready(function($) {
     CartForm($, $cartForm)
   })
 
-  document.addEventListener('turbolinks:request-start', function () {
+  document.addEventListener('turbo:request-start', function () {
     Spree.hideProductAddedModal()
   })
 })

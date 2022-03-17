@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbo:load', function () {
   $('#product-description-arrow').click(function () {
     document.getElementById('product-description-long').classList.remove('d-none')
     document.getElementById('product-description-short').classList.add('d-none')

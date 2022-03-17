@@ -3,10 +3,6 @@ require 'spec_helper'
 describe 'Products sorting', type: :feature, js: true, retry: 3 do
   let(:store) { Spree::Store.default }
 
-  def wait_for_turbolinks
-    expect(page).to have_no_css '.turbolinks-progress-bar'
-  end
-
   def apply_sorting(sort_by)
     dropdown_element = find('div.plp-sort')
 
@@ -30,35 +26,35 @@ describe 'Products sorting', type: :feature, js: true, retry: 3 do
 
   it 'allows sorting products by name (A-Z)' do
     apply_sorting('name_a_z')
-    wait_for_turbolinks
+    wait_for_turbo
 
     expect(products_names).to eql(store.products.order(name: :asc).pluck(:name))
   end
 
   it 'allows sorting products by name (Z-A)' do
     apply_sorting('name_z_a')
-    wait_for_turbolinks
+    wait_for_turbo
 
     expect(products_names).to eql(store.products.order(name: :desc).pluck(:name))
   end
 
   it 'allows sorting products by newest first' do
     apply_sorting('newest_first')
-    wait_for_turbolinks
+    wait_for_turbo
 
     expect(products_names).to eql(store.products.order(available_on: :desc).pluck(:name))
   end
 
   it 'allows sorting products by price (high to low)' do
     apply_sorting('price_high_to_low')
-    wait_for_turbolinks
+    wait_for_turbo
 
     expect(products_names).to eql(store.products.sort_by(&:price).reverse.map(&:name))
   end
 
   it 'allows sorting products by price (low to high)' do
     apply_sorting('price_low_to_high')
-    wait_for_turbolinks
+    wait_for_turbo
 
     expect(products_names).to eql(store.products.sort_by(&:price).map(&:name))
   end

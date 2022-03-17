@@ -21,7 +21,7 @@ Spree.ready(function($) {
       this.closeAllCategories = this.closeAllCategories.bind(this);
 
       window.addEventListener('resize', this.onResize);
-      window.addEventListener('turbolinks:request-start', this.onCloseClick);
+      window.addEventListener('turbo:request-start', this.onCloseClick);
 
       this.burgerButton.addEventListener('click', this.onBurgerClick, false);
       this.closeButton.addEventListener('click', this.onCloseClick, false);
