@@ -11,7 +11,6 @@
 //= require ./lazysizes.config
 //= require lazysizes.min
 //= require accounting.min
-//= require turbo
 //= require spree/frontend/account
 //= require spree/frontend/api_tokens
 //= require spree/frontend/carousel-noconflict
