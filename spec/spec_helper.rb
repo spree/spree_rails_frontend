@@ -52,8 +52,6 @@ def wait_for_turbo
   expect(page).to have_no_css '.turbo-progress-bar'
 end
 
-Rails.application.routes.default_url_options[:host] = 'example.com'
-
 RSpec.configure do |config|
   config.color = true
   config.default_formatter = 'doc'
