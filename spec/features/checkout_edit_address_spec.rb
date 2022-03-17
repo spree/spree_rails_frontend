@@ -15,7 +15,7 @@ describe 'User editing saved address during checkout', type: :feature, js: true 
     fill_in "#{I18n.t('activerecord.attributes.spree/address.address1')} #{Spree.t(:required)}", with: new_street
     click_button 'Update'
     user.reload
-    refresh
+    wait_for_turbo
     expect(page).to have_current_path spree.checkout_state_path('address')
     within('h1') { expect(page).to have_content('CHECKOUT') }
     within('#billing') do
