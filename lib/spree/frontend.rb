@@ -9,6 +9,7 @@ require 'inline_svg'
 require 'popper_js'
 require 'canonical-rails'
 require 'jquery-rails'
+require 'jsbundling-rails'
 require 'turbo-rails'
 require 'responders'
 
