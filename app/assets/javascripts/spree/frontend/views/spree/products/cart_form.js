@@ -89,7 +89,7 @@ function CartForm($, $cartForm) {
     this.selectedOptionValueIds.splice(
       optionTypeIndex,
       this.selectedOptionValueIds.length,
-      parseInt($optionValue.val())
+      $optionValue.val().toString()
     )
   }
 
