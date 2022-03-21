@@ -180,7 +180,7 @@ function CartForm($, $cartForm) {
 
     if (!this.withOptionValues) {
       return this.variants.find(function(variant) {
-        return variant.id.toString() === self.$variantIdInput.val().toString()
+        return variant.id && self.$variantIdInput.val() && variant.id.toString() === self.$variantIdInput.val().toString()
       })
     }
 
