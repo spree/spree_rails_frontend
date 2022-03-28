@@ -15,7 +15,7 @@
           </div>
           <% path = spree.respond_to?(:update_checkout_registration_path) ? spree.update_checkout_registration_path : spree_signup_path %>
 
-          <%= form_for @order, url: path, method: :put, html: { id: 'checkout_form_registration' } do |f| %>
+          <%= form_for @order, url: path, method: :put, html: { id: 'checkout_form_registration', data: { turbo: false } } do |f| %>
             <div class="form-group">
               <p class="form-group checkout-content-inner-field">
                 <%= f.email_field :email, class: 'spree-flat-input', placeholder: Spree.t(:email) %>
