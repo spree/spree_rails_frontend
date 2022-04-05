@@ -27,10 +27,11 @@ module Spree
     private
 
     def should_build_new_url?
+      return false if request.env['HTTP_REFERER'].blank?
       if request.env['HTTP_REFERER'].match(REDIRECT_TO_ROOT)
         false
       else
-        request.env['HTTP_REFERER'].present? && request.env['HTTP_REFERER'] != request.env['REQUEST_URI']
+        request.env['HTTP_REFERER'] != request.env['REQUEST_URI']
       end
     end
   end
