@@ -67,7 +67,7 @@ module Spree
             }
           end
         else
-          filter_content_tag(option_value.name, opts.merge(is_selected: is_selected))
+          filter_content_tag(option_value.presentation, opts.merge(is_selected: is_selected))
         end
       end
     end
