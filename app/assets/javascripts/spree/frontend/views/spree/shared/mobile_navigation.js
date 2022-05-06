@@ -77,7 +77,7 @@ Spree.ready(function($) {
 
   MobileNavigationManager.prototype.openCategory = function(category) {
     this.openedCategories.push(category);
-    var subList = document.querySelector('ul[data-category=' + category + ']');
+    var subList = document.querySelector('ul[data-category="' + category + '"]');
     if (subList) {
       this.mobileNavigationList.classList.add('mobile-navigation-list-subcategory-shown');
       this.mobileNavigationList.scrollTop = 0
@@ -89,7 +89,7 @@ Spree.ready(function($) {
 
   MobileNavigationManager.prototype.closeCurrentCategory = function() {
     var category = this.openedCategories.pop();
-    var subList = document.querySelector('ul[data-category=' + category + ']');
+    var subList = document.querySelector('ul[data-category="' + category + '"]');
     if (subList) {
       subList.classList.remove('shown');
     }
@@ -101,7 +101,7 @@ Spree.ready(function($) {
   }
 
   MobileNavigationManager.prototype.closeCategory = function(category) {
-    var subList = document.querySelector('ul[data-category=' + category + ']');
+    var subList = document.querySelector('ul[data-category="' + category + '"]');
     subList.style.transition = 'none';
     subList.classList.remove('shown');
     setTimeout(function(){ subList.style.transition = ''; }, 500);
