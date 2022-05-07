@@ -9,14 +9,14 @@
         <li>
           <%= label_tag "variant_option_value_id_#{option_type[:id]}_#{option_value[:id]}",
             class: "m-1 m-sm-2 m-md-1 color-select-label",
-            title: option_value[:name]&.humanize,
+            title: option_value[:presentation],
             data: { toggle: "tooltip", placement: "bottom" } do %>
 
             <%= radio_button_tag "variant_option_value_id_#{option_type[:id]}",
               option_value[:id],
               option_value[:is_default] && index == 0,
               class: "product-variants-variant-values-radio",
-              aria: { label: option_value[:name] },
+              aria: { label: option_value[:presentation] },
               data: {
                 "option-type-index" => index,
                 "presentation" => option_value[:presentation],
