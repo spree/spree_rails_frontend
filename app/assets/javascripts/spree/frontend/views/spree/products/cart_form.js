@@ -298,7 +298,7 @@ Spree.ready(function($) {
         quantity,
         options, // options hash - you can pass additional parameters here, your backend
         // needs to be aware of those, see API docs:
-        // https://github.com/spree/spree/blob/master/api/docs/v2/storefront/index.yaml#L42
+        // https://github.com/spree/spree/blob/d894358e49b8c3a7f6944e838de7cd92510e31d0/api/docs/v2/storefront/index.yaml#L442
         function(response) {
           $addToCart.prop('disabled', false)
           Spree.fetchCart()
