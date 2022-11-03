@@ -1,4 +1,4 @@
-//= require spree/api/main
+//= require spree/frontend/api/main
 
 SpreeAPI.Storefront.createCart = function (successCallback, failureCallback) {
   fetch(Spree.routes.api_v2_storefront_cart_create, {
