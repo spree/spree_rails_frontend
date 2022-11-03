@@ -1,4 +1,4 @@
-//= require spree
+//= require spree/frontend/main
 
 var SpreeAPI = {
   oauthToken: null, // user Bearer token to authorize operations for the given user

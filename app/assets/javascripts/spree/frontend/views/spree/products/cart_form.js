@@ -1,4 +1,4 @@
-//= require spree/api/storefront/cart
+//= require spree/frontend/api/storefront/cart
 //= require ../shared/product_added_modal
 //= require ../shared/variant_select
 

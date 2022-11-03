@@ -4,10 +4,10 @@
 //= require bootstrap
 //= require jquery.payment
 //= require cleave
-//= require spree
+//= require spree/frontend/main
 //= require polyfill.min
 //= require fetch.umd
-//= require spree/api/main
+//= require spree/frontend/api/main
 //= require ./lazysizes.config
 //= require lazysizes.min
 //= require accounting.min
