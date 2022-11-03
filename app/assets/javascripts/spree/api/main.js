@@ -9,9 +9,9 @@ SpreeAPI.Storefront = {}
 SpreeAPI.Platform = {}
 
 // API routes
-Spree.routes.api_v2_storefront_cart_create = Spree.pathFor('api/v2/storefront/cart')
-Spree.routes.api_v2_storefront_cart_add_item = Spree.pathFor('api/v2/storefront/cart/add_item')
-Spree.routes.api_v2_storefront_cart_apply_coupon_code = Spree.pathFor('api/v2/storefront/cart/apply_coupon_code')
+Spree.routes.api_v2_storefront_cart_create = Spree.localizedPathFor('api/v2/storefront/cart')
+Spree.routes.api_v2_storefront_cart_add_item = Spree.localizedPathFor('api/v2/storefront/cart/add_item')
+Spree.routes.api_v2_storefront_cart_apply_coupon_code = Spree.localizedPathFor('api/v2/storefront/cart/apply_coupon_code')
 
 // helpers
 SpreeAPI.handle500error = function () {
