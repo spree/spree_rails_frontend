@@ -64,7 +64,7 @@
     <div class="col-12">
 
       <%= link_to link_one, class: link_one_classes, style: '--aspect-ratio:18/13;' do %>
-        <% if section.image_one.attached? && section.image_one.variable? %>
+        <% if section.image_one&.attachment&.attached? && section.image_one&.attachment&.variable? %>
 
             <!-- XS to MD -->
             <img class="d-md-none lazyload"
@@ -102,7 +102,7 @@
     <div class="col-12">
 
       <%= link_to link_three, class: link_three_classes, style: '--aspect-ratio:18/13;' do %>
-        <% if section.image_three.attached? && section.image_three.variable? %>
+        <% if section.image_three&.attachment&.attached? && section.image_three&.attachment&.variable? %>
 
             <!-- XS to MD -->
             <img class="d-md-none lazyload"
@@ -139,7 +139,7 @@
 <!-- Right Block TALL -->
 <div class="col-6 <%= section_two_padding %>">
   <%= link_to link_two, class: link_two_classes, style: '--aspect-ratio:27/40;' do %>
-    <% if section.image_two.attached? && section.image_two.variable? %>
+    <% if section.image_two&.attachment&.attached? && section.image_two&.attachment&.variable? %>
 
         <!-- XS to MD -->
         <img class="d-md-none lazyload"
