@@ -36,7 +36,7 @@
               class: "d-flex align-items-end justify-content-center bg-light text-center overflow-hidden homepage-bottom-box #{'pointer-events-none cursor-default' unless link_one}",
               style: '--aspect-ratio:54/35;' do %>
 
-      <% if section.image_one.attached? %>
+      <% if section.image_one&.attachment&.attached? %>
         <!-- XS to MD -->
         <img class="d-md-none lazyload"
           data-src="<%= main_app.cdn_image_url(section.img_one_md) %>"
@@ -79,7 +79,7 @@
               class: "d-flex align-items-end justify-content-center bg-light text-center overflow-hidden homepage-bottom-box #{'pointer-events-none cursor-default' unless link_two}",
               style: '--aspect-ratio:54/35;' do %>
 
-      <% if section.image_two.attached? %>
+      <% if section.image_two&.attachment&.attached? %>
         <!-- XS to MD -->
           <img class="d-md-none lazyload"
             data-src="<%= main_app.cdn_image_url(section.img_two_md) %>"
