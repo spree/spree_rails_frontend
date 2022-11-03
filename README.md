@@ -16,14 +16,14 @@ Add
 gem 'spree_frontend'
 ```
 
-to your `Gemfile`.
+to your `Gemfile`, and make sure both `gem 'jsbundling-rails'` and `gem 'turbo-rails'` are added.
 
 Run:
 
 ```bash
 bundle install
-bin/rails g jsbundling:esbuild:install
-bin/rails g turbo:install
+bin/rails javascript:install:esbuild
+bin/rails turbo:install
 bin/rails g spree:frontend:install
 ```
 
