@@ -19,10 +19,12 @@ ShippingTotalManager.prototype.calculateShipmentTotal = function () {
   var checked = $(this.shippingMethods).filter(':checked')
   this.sum = 0
   this.tax = this.parseCurrencyToFloat(this.nonShipmentTax)
-  $.each(checked, function (idx, shippingMethod) {
-    this.sum += this.parseCurrencyToFloat($(shippingMethod).data('cost'))
-    this.tax += this.parseCurrencyToFloat($(shippingMethod).data('tax'))
-  }.bind(this))
+  if (!this.isFreeShipping.html()) {
+    $.each(checked, function (idx, shippingMethod) {
+      this.sum += this.parseCurrencyToFloat($(shippingMethod).data('cost'))
+      this.tax += this.parseCurrencyToFloat($(shippingMethod).data('tax'))
+    }.bind(this))
+  }
   return this.readjustSummarySection(
     this.parseCurrencyToFloat(this.orderTotal.html()),
     this.sum,
