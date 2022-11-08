@@ -358,7 +358,7 @@ module Spree
     def spree_social_link(service)
       return '' if current_store.send(service).blank?
 
-      link_to "https://#{service}.com/#{current_store.send(service)}", target: :blank, rel: 'nofollow noopener', 'aria-label': service do
+      link_to "https://#{service}.com/#{current_store.send(service)}", target: '_blank', rel: 'nofollow noopener', 'aria-label': service do
         content_tag :figure, id: service, class: 'px-2' do
           icon(name: service, width: 22, height: 22)
         end
