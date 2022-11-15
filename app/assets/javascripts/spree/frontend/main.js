@@ -2,7 +2,7 @@
 function Spree () {}
 
 Spree.ready = function (callback) {
-  return jQuery(document).on('DOMContentLoaded turbo:load', function () {
+  return jQuery(document).on('DOMContentLoaded', function () {
     return callback(jQuery)
   })
 }
