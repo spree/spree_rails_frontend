@@ -12,6 +12,14 @@ describe 'Checkout', type: :feature, inaccessible: true, js: true do
       stock_location.stock_items.update_all(count_on_hand: 1)
     end
 
+    # Regression test for PR #22
+    context 'when add to cart is clicked once' do
+      it 'creates only one order' do
+        add_mug_to_cart
+        expect(Spree::Order.count).to eq 1
+      end
+    end
+
     context 'defaults to use billing address' do
       before do
         add_mug_to_cart
