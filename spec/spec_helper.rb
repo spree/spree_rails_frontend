@@ -44,6 +44,8 @@ require 'spree/testing_support/image_helpers'
 require 'spree/testing_support/locale_helpers'
 require 'webdrivers'
 
+DatabaseCleaner.strategy = :deletion
+
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
