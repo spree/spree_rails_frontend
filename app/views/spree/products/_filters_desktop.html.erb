@@ -9,7 +9,7 @@
           <% option_type_name = ot_filter_param.titleize %>
           <% collapsed = params[ot_filter_param].blank? %>
 
-          <button class="card-header <%= 'collapsed' if collapsed %> px-1 plp-filters-card-header" id="filters<%= option_type_name %>" data-toggle="collapse" data-target="#collapseFilter<%= option_type_name %>" aria-expanded="<%= !collapsed %>" aria-controls="collapseFilter<%= option_type_name %>" role="heading" aria-level="2">
+          <button class="card-header <%= 'collapsed' if collapsed %> px-1 plp-filters-card-header" id="filters<%= ot_filter_param %>" data-toggle="collapse" data-target="#collapseFilter<%= ot_filter_param %>" aria-expanded="<%= !collapsed %>" aria-controls="collapseFilter<%= ot_filter_param %>" role="heading" aria-level="2">
             <%= option_type.presentation %>
             <%= icon(name: 'plus',
                     classes: 'mt-1 float-right arrow plp-filters-card-header-arrow--plus',
@@ -20,7 +20,7 @@
                     width: 16,
                     height: 16) %>
           </button>
-          <div id="collapseFilter<%= option_type_name %>" class="collapse <%= 'show' unless collapsed %>" aria-labelledby="filters<%= option_type_name %>">
+          <div id="collapseFilter<%= ot_filter_param %>" class="collapse <%= 'show' unless collapsed %>" aria-labelledby="filters<%= ot_filter_param %>">
             <div class="card-body px-0 pt-1">
               <%= render 'spree/shared/option_values',
                 option_type: option_type,
