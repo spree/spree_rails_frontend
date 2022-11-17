@@ -16,7 +16,7 @@
         <% variant.option_values.sort { |ov| ov.option_type.position }.each do |ov| %>
           <li class="item-details">
             <% # TODO: rework option values so options_text method can be used here %>
-            <%= "#{ov.option_type.presentation}: #{ov.name.titleize}" %>
+            <%= "#{ov.option_type.presentation}: #{ov.presentation}" %>
           </li>
         <% end %>
       </ul>
