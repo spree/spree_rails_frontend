@@ -33,7 +33,7 @@ yarn build
 #### Disabled 'Add to Cart' Button Issue
 
 If you notice that the 'Add to Cart' button is disabled on product pages, try the following:
-* run `yarn build` again
+* run `yarn build` again in your main repo
 * if that doesn't fix the issue, try running the following setup commands again:
   ```
   bin/rails javascript:install:esbuild
@@ -41,7 +41,7 @@ If you notice that the 'Add to Cart' button is disabled on product pages, try th
   bin/rails g spree:frontend:install
   ```
 
-This issue may come up if you switch the source of your `spree_frontend` in your spree_starter Gemfile, e.g. from github to a local path, etc.
+This issue may come up if you switch the source of your `spree_frontend` in your Gemfile, e.g. from github to a local path, etc.
 
 ## Maintanence policy
 
