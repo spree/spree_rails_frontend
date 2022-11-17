@@ -44,6 +44,26 @@ If you notice that the 'Add to Cart' button is disabled on product pages, try th
 
 This issue may come up if you switch the source of your `spree_frontend` in your Gemfile, e.g. from github to a local path, etc.
 
+## Running Tests
+
+In order to generate the dummy app required for running tests, you’ll need to have the following installed on your machine:
+* node v16.13.1 (npm v8.1.2)
+* yarn ≥ v1.22.15
+* ruby v3.0.3
+
+To run tests locally, first run `bundle exec rake test_app`, then `bundle exec rspec`.
+
+### Troubleshooting
+If you are running on a Mac with an M1 processor, you may run into the following error when running tests:
+```          
+Webdrivers::NetworkError:
+Net::HTTPServerException: 404 "Not Found"
+```
+If so, update your gemfile locally to get version 5.0 or higher for the web drivers gem:
+```
+gem 'webdrivers', '~> 5.0'
+```
+
 ## Maintanence policy
 
 This gem is in maintainence mode.
