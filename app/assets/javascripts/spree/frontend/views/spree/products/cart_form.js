@@ -190,7 +190,7 @@ function CartForm($, $cartForm) {
 
     return this.variants.find(function(variant) {
       var optionValueIds = variant.option_values.map(function(ov) {
-        return ov.id
+        return ov.id.toString()
       })
 
       return self.areArraysEqual(optionValueIds, self.selectedOptionValueIds)
