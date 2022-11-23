@@ -80,12 +80,12 @@ describe 'Products filtering', :js do
     expect(page).to have_content 'First shirt'
     expect(page).to have_content 'Second shirt'
 
-    click_on_filter 'Size', value: 'm'
+    click_on_filter 'Size', value: 'M'
     expect(page).not_to have_content 'First shirt'
     expect(page).to have_content 'Second shirt'
     expect(page).to have_selected_filter_with(value: 'M')
 
-    click_on_filter 'Size', value: 's'
+    click_on_filter 'Size', value: 'S'
     expect(page).to have_content 'First shirt'
     expect(page).to have_content 'Second shirt'
     expect(page).to have_selected_filter_with(value: 'M')
