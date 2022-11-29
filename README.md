@@ -16,7 +16,9 @@ Add
 gem 'spree_frontend'
 ```
 
-to your `Gemfile`, and make sure both `gem 'jsbundling-rails'` and `gem 'turbo-rails'` are added.
+to your `Gemfile`, making sure that the `spree_frontend` gem is before `spree_auth_devise`.
+
+Make sure both `gem 'jsbundling-rails'` and `gem 'turbo-rails'` are added as well.
 
 Run:
 
@@ -43,6 +45,10 @@ If you notice that the 'Add to Cart' button is disabled on product pages, try th
   ```
 
 This issue may come up if you switch the source of your `spree_frontend` in your Gemfile, e.g. from github to a local path, etc.
+
+#### Checkout without logging in results in error: "yourdomain.com redirected you too many times"
+
+This error results from the routes defined in `spree_frontend` and `spree_auth_devise` not being built in the correct order. Make sure the `spree_frontend` gem is listed before `spree_auth_devise` in your main project's gemfile.
 
 ## Running Tests
 
