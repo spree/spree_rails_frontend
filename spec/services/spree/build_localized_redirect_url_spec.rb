@@ -183,24 +183,24 @@ module Spree
       end
     end
 
-    context 'not supported path' do
+    context 'account related path' do
       context 'default store locale' do
         let(:locale) { 'en' }
 
         context 'http with port' do
-          let(:url) { 'http://example.com:3000/account?locale=fr' }
+          let(:url) { 'http://example.com:3000/fr/account' }
 
           it { expect(result).to eq('http://example.com:3000/account') }
         end
 
         context 'https with no trailing slash' do
-          let(:url) { 'https://example.com/login/?locale=fr' }
+          let(:url) { 'https://example.com/fr/login' }
 
           it { expect(result).to eq('https://example.com/login') }
         end
 
         context 'with parameters and port' do
-          let(:url) { 'https://example.com:3000/login?locale=fr&utm_source=google' }
+          let(:url) { 'https://example.com:3000/fr/login?utm_source=google' }
 
           it { expect(result).to eq('https://example.com:3000/login?utm_source=google') }
         end
@@ -212,19 +212,19 @@ module Spree
         context 'http with port' do
           let(:url) { 'http://example.com:3000/login/' }
 
-          it { expect(result).to eq('http://example.com:3000/login?locale=de') }
+          it { expect(result).to eq('http://example.com:3000/de/login') }
         end
 
         context 'https with no trailing slash' do
           let(:url) { 'https://example.com/account' }
 
-          it { expect(result).to eq('https://example.com/account?locale=de') }
+          it { expect(result).to eq('https://example.com/de/account') }
         end
 
         context 'with parameters and port' do
-          let(:url) { 'https://example.com:3000/login?locale=fr&utm_source=google' }
+          let(:url) { 'https://example.com:3000/de/login?utm_source=google' }
 
-          it { expect(result).to eq('https://example.com:3000/login?locale=de&utm_source=google') }
+          it { expect(result).to eq('https://example.com:3000/de/login?utm_source=google') }
         end
       end
     end
