@@ -10,6 +10,11 @@ module Spree
       new_locale = (params[:switch_to_locale] || params[:locale]).to_s
 
       if new_locale.present? && supported_locale?(new_locale)
+
+        if try_spree_current_user && try_spree_current_user.saved_locale != new_locale
+          try_spree_current_user.update(saved_locale: new_locale)
+        end
+
         if should_build_new_url?
           redirect_to BuildLocalizedRedirectUrl.call(
             url: request.env['HTTP_REFERER'],
