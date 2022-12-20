@@ -2,6 +2,14 @@ module Spree
   module StoreHelper
     include LocaleHelper
 
+    def spree_frontend_path_to_checkout
+      if Spree::Frontend::Engine.checkout_available?
+        spree.checkout_root_path
+      else
+        spree.checkout_path
+      end
+    end
+
     def store_country_iso(store = nil)
       store ||= current_store if defined?(current_store)
 
