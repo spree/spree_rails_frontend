@@ -1,3 +1,4 @@
+require 'spree_api_v1'
 require_relative 'configuration'
 
 module Spree

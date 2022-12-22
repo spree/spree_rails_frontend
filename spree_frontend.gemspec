@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_api', ">= #{s.version}"
   s.add_dependency 'spree_core', ">= #{s.version}"
+  s.add_dependency 'spree_api_v1', ">= 4.5.0"
 
   s.add_dependency 'babel-transpiler', '~> 0.7'
   s.add_dependency 'bootstrap',       '~> 4.0'
