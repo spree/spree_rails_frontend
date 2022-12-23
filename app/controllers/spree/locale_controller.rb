@@ -12,7 +12,7 @@ module Spree
       if new_locale.present? && supported_locale?(new_locale)
 
         if try_spree_current_user && try_spree_current_user.selected_locale != new_locale
-          try_spree_current_user.update(selected_locale: new_locale)
+          try_spree_current_user.update!(selected_locale: new_locale)
         end
 
         if should_build_new_url?
