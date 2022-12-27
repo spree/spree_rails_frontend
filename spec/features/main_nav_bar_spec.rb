@@ -12,7 +12,8 @@ describe 'Main navigation bar', type: :feature do
       let!(:stores) { create_list(:store, stores_number, default_country: create(:country)) }
 
       before do
-        Spree::Frontend::Config[:show_store_selector] = true
+        allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
+        allow(Spree::Frontend::Config).to receive(:[]).with(:show_store_selector).and_return(true)
 
         visit spree.root_path
       end
