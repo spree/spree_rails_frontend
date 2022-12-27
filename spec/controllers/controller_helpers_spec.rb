@@ -10,6 +10,9 @@ describe Spree::ProductsController, type: :controller do
 
   before do
     I18n.enforce_available_locales = false
+    allow(Spree::Frontend::Config).to receive(:[]).with(:http_cache_enabled).and_call_original
+    allow(Spree::Frontend::Config).to receive(:[]).with(:products_filters).and_call_original
+    allow(Spree::Frontend::Config).to receive(:[]).with(:layout).and_call_original
   end
 
   after do
@@ -27,7 +30,7 @@ describe Spree::ProductsController, type: :controller do
 
     context 'when Spree::Frontend::Config[:locale] not present' do
       before do
-        Spree::Frontend::Config[:locale] = nil
+        allow(Spree::Frontend::Config).to receive(:[]).with(:locale).and_return(nil)
       end
 
       context 'when rails application default locale not set' do
@@ -60,7 +63,7 @@ describe Spree::ProductsController, type: :controller do
     context 'when Spree::Frontend::Config[:locale] is present' do
       context 'and not in available_locales' do
         before do
-          Spree::Frontend::Config[:locale] = unavailable_locale
+          allow(Spree::Frontend::Config).to receive(:[]).with(:locale).and_return(unavailable_locale)
         end
 
         # FIXME: after adding supported_locales to Store this should be testable again
@@ -72,7 +75,7 @@ describe Spree::ProductsController, type: :controller do
 
       context 'and not in available_locales' do
         before do
-          Spree::Frontend::Config[:locale] = available_locale
+          allow(Spree::Frontend::Config).to receive(:[]).with(:locale).and_return(available_locale)
         end
 
         it 'sets the default locale based on Spree::Frontend::Config[:locale]' do
