@@ -132,7 +132,8 @@ describe 'homepage', type: :feature, js: true do
     let!(:hp_section_fr) { create(:cms_featured_article_section, cms_page: homepage_fr) }
 
     before do
-      Spree::Frontend::Config[:locale] = :fr
+      allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
+      allow(Spree::Frontend::Config).to receive(:[]).with(:locale).and_return(:fr)
 
       hp_sec_de = Spree::CmsSection.find(hp_section_de.id)
 
