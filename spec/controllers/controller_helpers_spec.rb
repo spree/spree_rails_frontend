@@ -14,7 +14,6 @@ describe Spree::ProductsController, type: :controller do
   end
 
   after do
-    Spree::Frontend::Config[:locale] = :en
     Rails.application.config.i18n.default_locale = :en
     I18n.locale = :en
     I18n.enforce_available_locales = true
