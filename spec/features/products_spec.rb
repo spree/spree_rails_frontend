@@ -365,7 +365,10 @@ describe 'Visiting Products', type: :feature, inaccessible: true do
   end
 
   context 'pagination' do
-    before { Spree::Config.products_per_page = 3 }
+    before do
+      allow(Spree::Config).to receive(:[]).with(anything).and_call_original
+      allow(Spree::Config).to receive(:[]).with(:products_per_page).and_return(3)
+    end
 
     it 'is able to display products priced between 151 and 200 dollars across multiple pages' do
       find(:css, '#filtersPrice').click
