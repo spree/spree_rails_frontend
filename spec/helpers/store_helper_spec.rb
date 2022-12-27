@@ -56,9 +56,7 @@ module Spree
         context 'with multiple stores' do
           before { create_list(:store, 2) }
 
-          it do
-            expect(should_render_store_chooser?).to be_truthy
-          end
+          it { expect(should_render_store_chooser?).to be_truthy }
         end
       end
 

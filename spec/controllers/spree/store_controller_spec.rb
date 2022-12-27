@@ -25,7 +25,7 @@ describe Spree::StoreController, type: :controller do
     end
 
     context 'with signed in user' do
-      let(:user) { stub_model(Spree::LegacyUser)}
+      let(:user) { stub_model(Spree::LegacyUser) }
 
       before do
         allow(controller).to receive_messages try_spree_current_user: user
