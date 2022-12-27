@@ -10,9 +10,7 @@ describe Spree::ProductsController, type: :controller do
 
   before do
     I18n.enforce_available_locales = false
-    allow(Spree::Frontend::Config).to receive(:[]).with(:http_cache_enabled).and_call_original
-    allow(Spree::Frontend::Config).to receive(:[]).with(:products_filters).and_call_original
-    allow(Spree::Frontend::Config).to receive(:[]).with(:layout).and_call_original
+    allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
   end
 
   after do
