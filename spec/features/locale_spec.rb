@@ -91,13 +91,13 @@ describe 'setting locale', type: :feature, js: true do
   context 'without store locale set' do
     before do
       I18n.locale = locale
-      Spree::Frontend::Config[:locale] = locale
+      allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
+      allow(Spree::Frontend::Config).to receive(:[]).with(:locale).and_return(locale)
       visit spree.cart_path
     end
 
     after do
       I18n.locale = 'en'
-      Spree::Frontend::Config[:locale] = 'en'
     end
 
     it_behaves_like 'translates cart page'
