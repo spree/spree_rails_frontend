@@ -4,9 +4,12 @@ module Spree
   class BuildLocalizedRedirectUrl
     prepend Spree::ServiceModule::Base
 
-    LOCALE_REGEX = /^\/[A-Za-z]{2}\/|^\/[A-Za-z]{2}-[A-Za-z]{2}\/|^\/[A-Za-z]{2}$|^\/[A-Za-z]{2}-[A-Za-z]{2}$/.freeze
+    LOCALE_REGEX = /^\/([A-Za-z]{2})\/|^\/([A-Za-z]{2}-[A-Za-z]{2})\/|^\/([A-Za-z]{2})$|^\/([A-Za-z]{2}-[A-Za-z]{2})$/.freeze
 
     SUPPORTED_PATHS_REGEX = /\/(products|t\/|cart|checkout|addresses|content|pages|login|account|logout|signup|users)/.freeze
+
+    PRODUCT_PATH_REGEX = /\/products\/(\S+)/.freeze
+    TAXON_PATH_REGEX = /\/t\/(\S+)/.freeze
 
     # rubocop:disable Lint/UnusedMethodArgument
     def call(url:, locale:, default_locale: nil)
@@ -23,11 +26,12 @@ module Spree
       success(
         url: URI(url),
         locale: locale,
+        default_locale: default_locale,
         default_locale_supplied: default_locale_supplied?(locale, default_locale)
       )
     end
 
-    def generate_new_path(url:, locale:, default_locale_supplied:)
+    def generate_new_path(url:, locale:, default_locale:, default_locale_supplied:)
       unless supported_path?(url.path)
         return success(
           url: url,
@@ -38,11 +42,20 @@ module Spree
         )
       end
 
-      new_path = if default_locale_supplied
-                   maches_locale_regex?(url.path) ? url.path.gsub(LOCALE_REGEX, '/') : url.path
-                 else
-                   maches_locale_regex?(url.path) ? url.path.gsub(LOCALE_REGEX, "/#{locale}/") : "/#{locale}#{url.path}"
-                 end
+
+      locale_url_match = url.path.match(LOCALE_REGEX)
+      previous_locale = locale_url_match ? locale_url_match[1] || default_locale : default_locale
+
+      product_path_match = url.path.match(PRODUCT_PATH_REGEX)
+      taxon_path_match = url.path.match(TAXON_PATH_REGEX)
+
+      if product_path_match
+        new_path = generate_product_path(product_path_match, previous_locale, locale, default_locale, default_locale_supplied)
+      elsif url.path.match(TAXON_PATH_REGEX)
+        new_path = generate_taxon_path(taxon_path_match, previous_locale, locale, default_locale, default_locale_supplied)
+      else
+        new_path = generate_regular_page_path(default_locale_supplied, url, locale)
+      end
 
       success(
         url: url,
@@ -96,6 +109,28 @@ module Spree
 
     def builder_class(url)
       url.scheme == 'http' ? URI::HTTP : URI::HTTPS
+    end
+
+    def generate_product_path(product_path_match, previous_locale, locale, default_locale, default_locale_supplied)
+      product = Mobility.with_locale(previous_locale) { Spree::Product.friendly.find(product_path_match[1]) }
+      new_slug = Mobility.with_locale(locale) { product.slug(fallbacks: default_locale) }
+      new_path_slug = "/products/#{new_slug}"
+      default_locale_supplied ? new_path_slug : "/#{locale}/#{new_path_slug}"
+    end
+
+    def generate_taxon_path(taxon_path_match, previous_locale, locale, default_locale, default_locale_supplied)
+      taxon = Mobility.with_locale(previous_locale) { Spree::Taxon.friendly.find(taxon_path_match[1]) }
+      new_slug = Mobility.with_locale(locale) { taxon.permalink(fallbacks: default_locale) }
+      new_path_slug = "/t/#{new_slug}"
+      default_locale_supplied ? new_path_slug : "/#{locale}/#{new_path_slug}"
+    end
+
+    def generate_regular_page_path(default_locale_supplied, url, locale)
+      if default_locale_supplied
+        maches_locale_regex?(url.path) ? url.path.gsub(LOCALE_REGEX, '/') : url.path
+      else
+        maches_locale_regex?(url.path) ? url.path.gsub(LOCALE_REGEX, "/#{locale}/") : "/#{locale}#{url.path}"
+      end
     end
   end
 end
