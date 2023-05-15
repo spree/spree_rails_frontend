@@ -263,7 +263,7 @@ function CartForm($, $cartForm) {
     var variant = this.selectedVariant()
     var variantId = (variant && variant.id) || ''
 
-    this.$variantIdInput.val(variantId)
+    this.$variantIdInput.val(variantId).change()
   }
 
   this.constructor()
