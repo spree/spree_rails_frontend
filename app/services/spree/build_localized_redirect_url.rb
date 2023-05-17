@@ -112,7 +112,12 @@ module Spree
     end
 
     def generate_product_path(product_path_match, previous_locale, locale, default_locale, default_locale_supplied)
-      product = Mobility.with_locale(previous_locale) { Spree::Product.friendly.find(product_path_match[1]) }
+      product = begin
+        Mobility.with_locale(previous_locale) { Spree::Product.friendly.find(product_path_match[1]) }
+      rescue ActiveRecord::RecordNotFound
+        Mobility.with_locale(default_locale) { Spree::Product.friendly.find(product_path_match[1]) }
+      end
+
       new_slug = Mobility.with_locale(locale) { product.slug(fallbacks: default_locale) }
       new_path_slug = "/products/#{new_slug}"
       default_locale_supplied ? new_path_slug : "/#{locale}/#{new_path_slug}"
