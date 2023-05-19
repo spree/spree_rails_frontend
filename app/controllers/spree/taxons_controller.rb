@@ -30,7 +30,7 @@ module Spree
     end
 
     def load_taxon
-      @taxon = current_store.taxons.friendly.find(params[:id])
+      @taxon = find_with_fallback_default_locale { current_store.taxons.friendly.find(params[:id]) }
     end
 
     def load_products

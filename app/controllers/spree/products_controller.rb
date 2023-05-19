@@ -52,7 +52,7 @@ module Spree
     end
 
     def load_product
-      @product = current_store.products.for_user(try_spree_current_user).friendly.find(params[:id])
+      @product = find_with_fallback_default_locale { current_store.products.for_user(try_spree_current_user).friendly.find(params[:id]) }
     end
 
     def load_taxon

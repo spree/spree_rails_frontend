@@ -4,6 +4,7 @@ module Spree
   describe BuildLocalizedRedirectUrl do
     subject { described_class.call(url: url, locale: locale, default_locale: default_locale) }
 
+    let!(:product) { create(:product, slug: 'some-product') }
     let(:result) { subject.value }
     let(:default_locale) { 'en' }
 

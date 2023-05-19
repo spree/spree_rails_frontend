@@ -94,6 +94,9 @@ RSpec.configure do |config|
     DatabaseCleaner.start
     reset_spree_preferences
 
+    I18n.locale = :en
+    I18n.fallbacks = { de: [:en], en: [:en], fr: [:en], 'es-MX': [:en] }
+
     country = create(:country, name: 'United States of America', iso_name: 'UNITED STATES', iso: 'US', states_required: true)
     Spree::Config[:default_country_id] = country.id
 
