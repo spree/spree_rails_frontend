@@ -18,7 +18,7 @@ module Spree
       image_path ||= if logo_attachment&.attached? && logo_attachment&.variable?
                        main_app.cdn_image_url(logo_attachment.variant(resize: '244x104>'))
                      elsif logo_attachment&.attached? && logo_attachment&.image?
-                       main_app.cdn_image_url(current_store.logo)
+                       main_app.cdn_image_url(logo_attachment)
                      else
                        asset_path('logo/spree_50.png')
                      end
