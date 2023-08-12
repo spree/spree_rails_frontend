@@ -6,6 +6,7 @@ var ADD_TO_CART_FORM_SELECTOR = '.add-to-cart-form'
 var VARIANT_ID_SELECTOR = '[name="variant_id"]'
 var OPTION_VALUE_SELECTOR = '.product-variants-variant-values-radio'
 var ADD_TO_CART_SELECTOR = '.add-to-cart-button'
+var CHECKED_OPTION_VALUE_APPLIED_EVENT = 'spreeCheckedOptionValueApplied'
 
 var AVAILABILITY_TEMPLATES = {
   notAvailableInCurrency: '.availability-template-not-available-in-currency',
@@ -81,6 +82,12 @@ function CartForm($, $cartForm) {
     }
 
     if (initialUpdate) $optionValue.prop('checked', true)
+
+    document.dispatchEvent(
+      new CustomEvent(CHECKED_OPTION_VALUE_APPLIED_EVENT, {
+        detail: { variant: this.selectedVariant() }
+      })
+    )
   }
 
   this.saveCheckedOptionValue = function($optionValue) {
