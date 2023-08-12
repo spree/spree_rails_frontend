@@ -87,7 +87,10 @@ describe Spree::ProductsController, type: :controller do
     end
 
     context 'when http_cache_enabled is set to false' do
-      before { Spree::Frontend::Config[:http_cache_enabled] = false }
+      before do
+        allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
+        allow(Spree::Frontend::Config).to receive(:[]).with(:http_cache_enabled).and_return(false)
+      end
 
       it 'does not call fresh_when method' do
         expect(subject).not_to receive(:fresh_when)
