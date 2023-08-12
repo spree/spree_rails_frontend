@@ -39,6 +39,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'turbo-rails'
   s.add_dependency 'responders'
   s.add_dependency 'sprockets', '~> 4.0'
+  s.add_dependency 'flag-icons-rails', '~> 3.4'
 
   s.add_development_dependency 'capybara-accessible'
 end

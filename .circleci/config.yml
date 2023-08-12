@@ -13,10 +13,10 @@ defaults: &defaults
     - image: &ruby_2_7_image circleci/ruby:2.7-node-browsers
     - image: &redis_image circleci/redis:6.2-alpine
 
-defaults_3_0: &defaults_3_0
+defaults_3_2: &defaults_3_2
   <<: *defaults
   docker:
-    - image: &ruby_3_0_image circleci/ruby:3.0-node-browsers
+    - image: &ruby_3_2_image circleci/ruby:3.0-node-browsers
     - image: *redis_image
 
 run_tests_2_7: &run_tests_2_7
@@ -29,8 +29,11 @@ run_tests_2_7: &run_tests_2_7
           - spree-storefront-old-bundle-v10-ruby-2-7-{{ .Branch }}
           - spree-storefront-old-bundle-v10-ruby-2-7
     - run:
+        name: Add keyserver
+        command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
+    - run:
         name: Install libvips
-        command: sudo apt-get install libvips
+        command: sudo apt-get update && sudo apt-get install libvips
     - run:
           name: Set bundle path
           command: bundle config --local path vendor/bundle
@@ -55,18 +58,21 @@ run_tests_2_7: &run_tests_2_7
     - store_artifacts:
           path: tmp/capybara
 
-run_tests_3_0: &run_tests_3_0
-  <<: *defaults_3_0
+run_tests_3_2: &run_tests_3_2
+  <<: *defaults_3_2
   parallelism: 8
   steps:
     - checkout
     - restore_cache:
         keys:
-          - spree-storefront-old-bundle-v10-ruby-3-0-{{ .Branch }}
-          - spree-storefront-old-bundle-v10-ruby-3-0
+          - spree-storefront-old-bundle-v10-ruby-3-2-{{ .Branch }}
+          - spree-storefront-old-bundle-v10-ruby-3-2
+    - run:
+        name: Add keyserver
+        command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
     - run:
         name: Install libvips
-        command: sudo apt-get install libvips
+        command: sudo apt-get update && sudo apt-get install libvips
     - run:
           name: Set bundle path
           command: bundle config --local path vendor/bundle
@@ -101,8 +107,11 @@ jobs:
             - spree-storefront-old-bundle-v10-ruby-2-7-{{ .Branch }}
             - spree-storefront-old-bundle-v10-ruby-2-7
       - run:
+          name: Add keyserver
+          command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
+      - run:
           name: Install libvips
-          command: sudo apt-get install libvips
+          command: sudo apt-get update && sudo apt-get install libvips
       - run:
           name: Set bundle path
           command: bundle config --local path vendor/bundle
@@ -115,17 +124,20 @@ jobs:
             - vendor/bundle
           key: spree-storefront-old-bundle-v10-ruby-2-7-{{ checksum "Gemfile.lock" }}
 
-  bundle_ruby_3_0:
-    <<: *defaults_3_0
+  bundle_ruby_3_2:
+    <<: *defaults_3_2
     steps:
       - checkout
       - restore_cache:
           keys:
-            - spree-storefront-old-bundle-v10-ruby-3-0-{{ .Branch }}
-            - spree-storefront-old-bundle-v10-ruby-3-0
+            - spree-storefront-old-bundle-v10-ruby-3-2-{{ .Branch }}
+            - spree-storefront-old-bundle-v10-ruby-3-2
+      - run:
+          name: Add keyserver
+          command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
       - run:
           name: Install libvips
-          command: sudo apt-get install libvips
+          command: sudo apt-get update && sudo apt-get install libvips
       - run:
           name: Set bundle path
           command: bundle config --local path vendor/bundle
@@ -136,7 +148,7 @@ jobs:
       - save_cache:
           paths:
             - vendor/bundle
-          key: spree-storefront-old-bundle-v10-ruby-3-0-{{ checksum "Gemfile.lock" }}
+          key: spree-storefront-old-bundle-v10-ruby-3-2-{{ checksum "Gemfile.lock" }}
 
   tests_ruby_2_7_rails_7_0_postgres:
     <<: *run_tests_2_7
@@ -152,12 +164,12 @@ jobs:
         environment:
           POSTGRES_USER: postgres
 
-  tests_ruby_3_0_rails_7_0_postgres:
-    <<: *run_tests_3_0
+  tests_ruby_3_2_rails_7_0_postgres:
+    <<: *run_tests_3_2
     environment:
       <<: *postgres_environment
     docker:
-      - image: *ruby_3_0_image
+      - image: *ruby_3_2_image
       - image: *postgres_image
       - image: *redis_image
 
@@ -180,10 +192,10 @@ workflows:
   main:
     jobs:
       - bundle_ruby_2_7
-      - bundle_ruby_3_0
-      - tests_ruby_3_0_rails_7_0_postgres:
+      - bundle_ruby_3_2
+      - tests_ruby_3_2_rails_7_0_postgres:
           requires:
-            - bundle_ruby_3_0
+            - bundle_ruby_3_2
       - tests_ruby_2_7_rails_7_0_postgres:
           requires:
             - bundle_ruby_2_7

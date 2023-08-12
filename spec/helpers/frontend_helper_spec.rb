@@ -71,20 +71,24 @@ THIS IS THE BEST PRODUCT EVER!
           expect(description.strip).to eq(%Q{<p>\nTHIS IS THE BEST PRODUCT EVER!</p>"IT CHANGED MY LIFE" - Sue, MD})
         end
 
-        it 'renders a product description without any formatting based on configuration' do
-          initial_description = %Q{
-              <p>hello world</p>
+        context 'when configuration is set to not use formatting' do
 
-              <p>tihs is completely awesome and it works</p>
+          before { allow(Spree::Frontend::Config).to receive(:[]).with(:show_raw_product_description).and_return(true) }
 
-              <p>why so many spaces in the code. and why some more formatting afterwards?</p>
-          }
+          it 'renders a product description without any formatting' do
+            initial_description = %Q{
+                <p>hello world</p>
 
-          product.description = initial_description
+                <p>tihs is completely awesome and it works</p>
 
-          Spree::Frontend::Config[:show_raw_product_description] = true
-          description = product_description(product)
-          expect(description).to eq(initial_description)
+                <p>why so many spaces in the code. and why some more formatting afterwards?</p>
+            }
+
+            product.description = initial_description
+
+            description = product_description(product)
+            expect(description).to eq(initial_description)
+          end
         end
 
         context 'renders a product description default description incase description is blank' do

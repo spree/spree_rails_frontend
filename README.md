@@ -42,6 +42,7 @@ If you notice that the 'Add to Cart' button is disabled on product pages, try th
   bin/rails turbo:install
   bin/rails g spree:frontend:install
   yarn build
+  rake assets:clean assets:precompile
   ```
 
 This issue may come up if you switch the source of your `spree_frontend` in your Gemfile, e.g. from github to a local path, etc.

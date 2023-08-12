@@ -26,6 +26,8 @@ describe 'homepage', type: :feature, js: true do
   end
 
   context 'meta description - when no cms_homepage is set and store has no meta data set' do
+    let!(:current_store_with_seo_title) { create(:store, default: true, meta_description: nil, description: nil) }
+
     before { visit spree.root_path }
 
     it 'returns store_seo_description falling back to store name' do
@@ -34,7 +36,7 @@ describe 'homepage', type: :feature, js: true do
   end
 
   context 'meta description - when no cms_homepage is set and store has meta title set' do
-    let!(:current_store_with_seo_title) { create(:store, default: true, seo_title: 'Store SEO Title') }
+    let!(:current_store_with_seo_title) { create(:store, default: true, seo_title: 'Store SEO Title', meta_description: nil) }
 
     before { visit spree.root_path }
 
@@ -59,7 +61,7 @@ describe 'homepage', type: :feature, js: true do
     before { visit spree.root_path }
 
     it 'falls back to store seo_meta_description' do
-      expect(page).to have_meta(:description, eu_store_hp.name)
+      expect(page).to have_meta(:description, eu_store_hp.seo_meta_description)
     end
   end
 
@@ -132,7 +134,8 @@ describe 'homepage', type: :feature, js: true do
     let!(:hp_section_fr) { create(:cms_featured_article_section, cms_page: homepage_fr) }
 
     before do
-      Spree::Frontend::Config[:locale] = :fr
+      allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
+      allow(Spree::Frontend::Config).to receive(:[]).with(:locale).and_return(:fr)
 
       hp_sec_de = Spree::CmsSection.find(hp_section_de.id)
 

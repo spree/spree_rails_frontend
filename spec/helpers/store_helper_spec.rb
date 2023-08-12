@@ -47,9 +47,7 @@ module Spree
 
     describe '#should_render_store_chooser?' do
       context 'enabled' do
-        before { Spree::Frontend::Config.show_store_selector = true }
-
-        after { Spree::Frontend::Config.show_store_selector = false }
+        before { allow(Spree::Frontend::Config).to receive(:[]).with(:show_store_selector).and_return(true) }
 
         context 'with 1 store' do
           it { expect(should_render_store_chooser?).to be_falsey }
