@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'setting locale', type: :feature, js: true do
   let!(:store) { Spree::Store.default }
+  let!(:store_translation_fr) { store.translations.create!(locale: 'fr', name: 'Mon magasin')}
   let!(:locale) { :fr }
 
   let!(:en_main_menu) { create(:menu, name: 'Main Menu', store_id: store.id) }
@@ -67,7 +68,7 @@ describe 'setting locale', type: :feature, js: true do
 
   shared_examples 'generates proper URLs' do
     it 'has localized links', retry: 3 do
-      expect(page).to have_link(store.name, href: '/fr')
+      expect(page).to have_link(store.name(locale: :fr), href: '/fr')
       expect(page).to have_link(fr_menu_item_taxon.name, href: spree.nested_taxons_path(fr_menu_item_taxon.linked_resource, locale: 'fr'))
       expect(page).to have_link(fr_menu_item_product.name, href: spree.product_path(fr_menu_item_product.linked_resource, locale: 'fr'))
     end
