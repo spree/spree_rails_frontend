@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe 'homepage', type: :feature, js: true do
-  let(:eu_store_hp) { create(:store, default: true, supported_currencies: 'EUR', default_locale: 'de', supported_locales: 'de,fr') }
+  let!(:eu_store_hp) { create(:store, default: true, supported_currencies: 'EUR', default_locale: 'de', supported_locales: 'de,fr') }
+  let!(:eu_store_hp_translation_de) { eu_store_hp.translations.create!(locale: 'de', name: 'Der Shop', meta_description: 'Default meta description DE') }
 
   after do
     create(:store, default: true)
@@ -17,11 +18,11 @@ describe 'homepage', type: :feature, js: true do
     before { visit spree.root_path }
 
     it 'displays page title as page title if no meta_title is set' do
-      expect(page).to have_title("#{homepage_mt.title} - #{eu_store_hp.name}")
+      expect(page).to have_title("#{homepage_mt.title} - #{eu_store_hp.name(locale: :de)}")
     end
 
     it 'displays page meta_title as page title if meta_title is set' do
-      expect(page).to have_title("#{homepage_mt.meta_title} - #{eu_store_hp.name}")
+      expect(page).to have_title("#{homepage_mt.meta_title} - #{eu_store_hp.name(locale: :de)}")
     end
   end
 
@@ -61,7 +62,7 @@ describe 'homepage', type: :feature, js: true do
     before { visit spree.root_path }
 
     it 'falls back to store seo_meta_description' do
-      expect(page).to have_meta(:description, eu_store_hp.seo_meta_description)
+      expect(page).to have_meta(:description, eu_store_hp.meta_description(locale: 'de'))
     end
   end
 
@@ -78,8 +79,8 @@ describe 'homepage', type: :feature, js: true do
   context 'when no homepage is set' do
     before { visit spree.root_path }
 
-    it 'the index page is still accesable with a back soon message' do
-      expect(page).to have_text('We will be back.')
+    it 'the index page is still accessible with a back soon message' do
+      expect(page).to have_text('We Will Be Back')
     end
   end
 

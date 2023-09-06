@@ -118,14 +118,14 @@ module Spree
         Mobility.with_locale(default_locale) { Spree::Product.friendly.find(product_path_match[1]) }
       end
 
-      new_slug = Mobility.with_locale(locale) { product.slug(fallbacks: default_locale) }
+      new_slug = product.slug(locale: locale) || product.slug(locale: default_locale)
       new_path_slug = "/products/#{new_slug}"
       default_locale_supplied ? new_path_slug : "/#{locale}/#{new_path_slug}"
     end
 
     def generate_taxon_path(taxon_path_match, previous_locale, locale, default_locale, default_locale_supplied)
       taxon = Mobility.with_locale(previous_locale) { Spree::Taxon.friendly.find(taxon_path_match[1]) }
-      new_slug = Mobility.with_locale(locale) { taxon.permalink(fallbacks: default_locale) }
+      new_slug = taxon.permalink(locale: locale) || taxon.permalink(locale: default_locale)
       new_path_slug = "/t/#{new_slug}"
       default_locale_supplied ? new_path_slug : "/#{locale}/#{new_path_slug}"
     end
