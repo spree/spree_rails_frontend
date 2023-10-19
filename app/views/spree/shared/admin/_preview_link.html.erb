@@ -1,0 +1,9 @@
+<%= link_to(
+  'Preview product',
+  product_path(@product),
+  class: 'btn btn-light',
+  icon: 'view.svg',
+  id: 'adminPreviewProduct',
+  target: :blank,
+  data: { turbo: false }
+) %>
