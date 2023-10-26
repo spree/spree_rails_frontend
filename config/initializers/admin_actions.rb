@@ -4,4 +4,5 @@ Rails.application.config.after_initialize do
   Rails.application.config.spree_backend.actions[:prices] = Spree::Admin::Actions::ProductPreviewActionBuilder.new.build
   Rails.application.config.spree_backend.actions[:stock] = Spree::Admin::Actions::ProductPreviewActionBuilder.new.build
   Rails.application.config.spree_backend.actions.include?(:variants) ? (Rails.application.config.spree_backend.actions[:variants].items << Spree::Admin::Actions::ProductPreviewActionBuilder.new.build.items).flatten! : Rails.application.config.spree_backend.actions[:variants] = Spree::Admin::Actions::ProductPreviewActionBuilder.new.build
+  Rails.application.config.spree_backend.actions.include?(:product_properties) ? (Rails.application.config.spree_backend.actions[:product_properties].items << Spree::Admin::Actions::ProductPreviewActionBuilder.new.build.items).flatten! : Rails.application.config.spree_backend.actions[:product_properties] = Spree::Admin::Actions::ProductPreviewActionBuilder.new.build
 end
