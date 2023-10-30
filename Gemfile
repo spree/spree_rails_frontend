@@ -22,8 +22,8 @@ platforms :ruby do
 end
 
 group :test do
-  gem 'capybara', '~> 3.24'
-  gem 'capybara-screenshot', '~> 1.0'
+  gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'capybara-select-2'
   gem 'database_cleaner', '~> 2.0'
   gem 'email_spec'
@@ -36,7 +36,7 @@ group :test do
   gem 'rswag-specs'
   gem 'jsonapi-rspec'
   gem 'simplecov', '0.17.1'
-  gem 'webmock', '~> 3.7'
+  gem 'webmock'
   gem 'timecop'
   gem 'rails-controller-testing'
 end
@@ -48,9 +48,8 @@ group :test, :development do
   gem 'rubocop', '~> 1.22.3', require: false # bumped
   gem 'rubocop-rspec', require: false
   gem 'pry-byebug'
-  gem 'webdrivers', '~> 4.1'
-  # Puma 6.0 causes issues in specs due to conflict with capybara version
-  gem 'puma', '< 6.0'
+  gem 'webdrivers'
+  gem 'puma'
   gem 'ffaker'
 end
 
