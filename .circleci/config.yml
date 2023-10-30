@@ -7,7 +7,7 @@ defaults: &defaults
     BUNDLE_JOBS: 4
     BUNDLE_RETRY: 3
     BUNDLE_PATH: ~/spree/vendor/bundle
-    RAILS_VERSION: '~> 7.0'
+    RAILS_VERSION: '~> 7.1.0'
   working_directory: ~/spree
   docker:
     - image: &ruby_3_2_image circleci/ruby:3.0-node-browsers
@@ -79,7 +79,7 @@ jobs:
             - vendor/bundle
           key: spree-storefront-old-bundle-v10-ruby-3-2-{{ checksum "Gemfile.lock" }}
 
-  tests_ruby_3_2_rails_7_0_postgres:
+  tests_ruby_3_2_rails_7_1_postgres:
     <<: *run_tests_3_2
     environment: &postgres_environment
       <<: *environment
@@ -93,7 +93,7 @@ jobs:
           POSTGRES_USER: postgres
       - image: *redis_image
 
-  tests_ruby_3_2_rails_7_0_mysql:
+  tests_ruby_3_2_rails_7_1_mysql:
     <<: *run_tests_3_2
     environment: &mysql_environment
       <<: *environment
@@ -112,9 +112,9 @@ workflows:
   main:
     jobs:
       - bundle_ruby_3_2
-      - tests_ruby_3_2_rails_7_0_postgres:
+      - tests_ruby_3_2_rails_7_1_postgres:
           requires:
             - bundle_ruby_3_2
-      - tests_ruby_3_2_rails_7_0_mysql:
+      - tests_ruby_3_2_rails_7_1_mysql:
           requires:
             - bundle_ruby_3_2
