@@ -251,7 +251,7 @@ module Spree
     end
 
     def price_filter_values
-      ActiveSupport::Deprecation.warn(<<-DEPRECATION, caller)
+      Spree::Deprecation.warn(<<-DEPRECATION, caller)
         `FrontendHelper#price_filter_values` is deprecated and will be removed in Spree 5.0.
         Please use `ProductsFiltersHelper#price_filters` method
       DEPRECATION

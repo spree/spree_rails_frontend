@@ -3,7 +3,7 @@ require 'digest'
 module Spree
   module NavigationHelper
     def spree_navigation_data
-      ActiveSupport::Deprecation.warn(<<-DEPRECATION, caller)
+      Spree::Deprecation.warn(<<-DEPRECATION, caller)
         NavigationHelper#spree_navigation_data is deprecated and will be removed in Spree 5.0.
         Please migrate to the new navigation cms system.
       DEPRECATION
@@ -20,7 +20,7 @@ module Spree
     end
 
     def spree_nav_cache_key(section = 'header')
-      ActiveSupport::Deprecation.warn(<<-DEPRECATION, caller)
+      Spree::Deprecation.warn(<<-DEPRECATION, caller)
         NavigationHelper#spree_nav_cache_key is deprecated and will be removed in Spree 5.0.
         Please migrate to the new navigation cms system.
       DEPRECATION
