@@ -107,7 +107,15 @@ module Spree
     alias product_etag etag_show
 
     def last_modified_index
-      products_last_modified      = @products.maximum(:updated_at)&.utc if @products.respond_to?(:maximum)
+      if @products.respond_to?(:maximum)
+        if max_updated_at = @products.maximum(:updated_at)
+          if max_updated_at.kind_of?(Hash)
+            products_last_modified = max_updated_at.values.max&.utc
+          else
+            products_last_modified = max_updated_at.utc
+          end
+        end
+      end
       current_store_last_modified = current_store.updated_at.utc
 
       [products_last_modified, current_store_last_modified].compact.max
