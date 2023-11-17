@@ -98,7 +98,6 @@ RSpec.configure do |config|
     I18n.fallbacks = { de: [:en], en: [:en], fr: [:en], 'es-MX': [:en] }
 
     country = create(:country, name: 'United States of America', iso_name: 'UNITED STATES', iso: 'US', states_required: true)
-    Spree::Config[:default_country_id] = country.id
 
     create(:store, default: true, default_currency: 'USD', default_country: country)
     create(:taxon, permalink: 'trending')
