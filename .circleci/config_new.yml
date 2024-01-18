@@ -72,6 +72,51 @@ jobs:
               - store_test_results:
                   path: ~/rspec
 
+  tests_postgres:
+    <<: *run_test
+    parallelism: << parameters.parallelism >>
+    parameters:
+        <<: *default_parameters
+        postgres_image:
+            type: string
+        parallelism:
+            type: integer
+            default: 8
+    environment:
+      <<: *environment
+      DB: postgres
+      DB_HOST: localhost
+      DB_USERNAME: postgres
+    docker:
+      - image: *ruby_image
+      - image: << parameters.postgres_image >>
+        environment:
+          POSTGRES_USER: postgres
+      - image: *redis_image
+
+  tests_mysql:
+    <<: *run_test
+    parallelism: << parameters.parallelism >>
+    parameters:
+        <<: *default_parameters
+        mysql_image:
+            type: string
+        parallelism:
+            type: integer
+            default: 8
+    environment:
+      <<: *environment
+      DB: mysql
+      DB_HOST: 127.0.0.1
+      DB_USERNAME: root
+      COVERAGE: true
+      COVERAGE_DIR: /tmp/workspace/simplecov
+    docker:
+      - image: *ruby_image
+      - image: *redis_image
+      - image: << parameters.mysql_image >>
+        command: [--default-authentication-plugin=mysql_native_password]
+
   tests_ruby_3_2_rails_7_1_postgres:
     <<: *run_tests_3_2
     environment: &postgres_environment
