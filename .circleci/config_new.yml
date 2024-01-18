@@ -117,34 +117,6 @@ jobs:
       - image: << parameters.mysql_image >>
         command: [--default-authentication-plugin=mysql_native_password]
 
-  tests_ruby_3_2_rails_7_1_postgres:
-    <<: *run_tests_3_2
-    environment: &postgres_environment
-      <<: *environment
-      DB: postgres
-      DB_HOST: localhost
-      DB_USERNAME: postgres
-    docker:
-      - image: *ruby_3_2_image
-      - image: &postgres_image circleci/postgres:12-alpine
-        environment:
-          POSTGRES_USER: postgres
-      - image: *redis_image
-
-  tests_ruby_3_2_rails_7_1_mysql:
-    <<: *run_tests_3_2
-    environment: &mysql_environment
-      <<: *environment
-      DB: mysql
-      DB_HOST: 127.0.0.1
-      DB_USERNAME: root
-      COVERAGE: true
-      COVERAGE_DIR: /tmp/workspace/simplecov
-    docker:
-      - image: *ruby_3_2_image
-      - image: *redis_image
-      - image: &mysql_image circleci/mysql:8-ram
-
 workflows:
   version: 2
   main:
