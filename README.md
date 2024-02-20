@@ -1,6 +1,6 @@
-# Spree (Legacy) Frontend
+# Spree Rails Frontend
 
-This is the old Spree Storefront extracted from Spree < 4.3 which was upgraded to Turbo/Hotwire.
+This is the Spree Storefront extracted from Spree < 4.3 which was upgraded to Turbo/Hotwire.
 
 ## Developed by
 
