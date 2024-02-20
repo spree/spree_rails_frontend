@@ -73,17 +73,6 @@ If so, update your gemfile locally to get version 5.0 or higher for the web driv
 gem 'webdrivers', '~> 5.0'
 ```
 
-## Maintanence policy
-
-This gem is in maintainence mode.
-
-We only accept bug fixes, Spree/Rails compatibility improvements & security patches.
-
-For new project we recommend using [Storefront API](https://api.spreecommerce.org/) to create your own unique storefront or use one of the pre-built starters: 
-
-* [Next.js](https://dev-docs.spreecommerce.org/storefronts/next.js-commerce)
-* [Vue Storefront](https://dev-docs.spreecommerce.org/storefronts/vue-storefront)
-
 ## Customization
 
 [Developer documentation](https://dev-docs.spreecommerce.org/customization/storefront)
