@@ -9,11 +9,12 @@ Spree::Core::Engine.add_routes do
     get '/t/*id', to: 'taxons#show', as: :nested_taxons
     get '/product_carousel/:id', to: 'taxons#product_carousel'
 
-    # non-restful checkout stuff
-    patch '/checkout/update/:state', to: 'checkout#update', as: :update_checkout
-    get '/checkout/:state', to: 'checkout#edit', as: :checkout_state
-    get '/checkout', to: 'checkout#edit', as: :checkout
-
+    unless Spree::Frontend::Engine.checkout_available?
+      # non-restful checkout stuff
+      patch '/checkout/update/:state', to: 'checkout#update', as: :update_checkout
+      get '/checkout/:state', to: 'checkout#edit', as: :checkout_state
+      get '/checkout', to: 'checkout#edit', as: :checkout
+    end
     resources :orders, except: [:index, :new, :create, :destroy]
 
     resources :addresses, except: [:index, :show]

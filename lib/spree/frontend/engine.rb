@@ -19,6 +19,10 @@ module Spree
       initializer 'spree.frontend.environment', before: :load_config_initializers do |_app|
         Spree::Frontend::Config = Spree::Frontend::Configuration.new
       end
+
+      def self.checkout_available?
+        @@checkout_available ||= ::Rails::Engine.subclasses.map(&:instance).map{ |e| e.class.to_s }.include?('Spree::Checkout::Engine')
+      end
     end
   end
 end
