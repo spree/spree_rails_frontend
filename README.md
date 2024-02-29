@@ -18,16 +18,11 @@ gem 'spree_frontend'
 
 to your `Gemfile`, making sure that the `spree_frontend` gem is before `spree_auth_devise`.
 
-Make sure both `gem 'jsbundling-rails'` and `gem 'turbo-rails'` are added as well.
-
 Run:
 
 ```bash
 bundle install
-bin/rails javascript:install:esbuild
-bin/rails turbo:install
 bin/rails g spree:frontend:install
-yarn build
 ```
 
 ### Troubleshooting

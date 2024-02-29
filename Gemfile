@@ -17,7 +17,7 @@ platforms :ruby do
   if ENV['DB'] == 'mysql'
     gem 'mysql2'
   else
-    gem 'pg', '~> 1.1'
+    gem 'pg'
   end
 end
 
