@@ -19,8 +19,8 @@ run_tests: &run_tests
     - checkout
     - restore_cache:
         keys:
-          - spree-storefront-old-bundle-v10-{{ checksum ".ruby-version" }}-{{ .Branch }}
-          - spree-storefront-old-bundle-v10-{{ checksum ".ruby-version" }}
+          - spree-storefront-bundle-{{ checksum ".ruby-version" }}-{{ .Branch }}
+          - spree-storefront-bundle-{{ checksum ".ruby-version" }}
     - run:
         name: Add keyserver
         command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
@@ -58,8 +58,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - spree-storefront-old-bundle-v10-{{ checksum ".ruby-version" }}-{{ .Branch }}
-            - spree-storefront-old-bundle-v10-{{ checksum ".ruby-version" }}
+            - spree-storefront-bundle-{{ checksum ".ruby-version" }}-{{ .Branch }}
+            - spree-storefront-bundle-{{ checksum ".ruby-version" }}
       - run:
           name: Add keyserver
           command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
@@ -72,7 +72,7 @@ jobs:
       - save_cache:
           paths:
             - vendor/bundle
-          key: spree-storefront-old-bundle-v10-{{ checksum ".ruby-version" }}-{{ checksum "Gemfile.lock" }}
+          key: spree-storefront-bundle-{{ checksum ".ruby-version" }}-{{ .Branch }}
 
   tests_mysql:
     <<: *run_tests
