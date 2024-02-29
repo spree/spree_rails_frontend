@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_frontend'
   s.version     = Spree::Frontend.version
-  s.authors     = ['Sean Schofield', 'Spark Solutions']
+  s.authors     = ['Sean Schofield', 'Spark Solutions', 'Vendo Inc.']
   s.email       = 'hello@spreecommerce.org'
   s.summary     = 'The default Storefront built with Rails and Turbo/Hotwire for Spree eCommerce platform'
   s.description = s.summary
@@ -33,7 +33,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'glyphicons',      '~> 1.0'
   s.add_dependency 'canonical-rails', '~> 0.2', '>= 0.2.10'
   s.add_dependency 'inline_svg',      '~> 1.5'
-  s.add_dependency 'jsbundling-rails'
   s.add_dependency 'jquery-rails',    '~> 4.3'
   s.add_dependency 'sass-rails',      '>= 5'
   s.add_dependency 'turbo-rails'

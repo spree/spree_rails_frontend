@@ -17,7 +17,7 @@ platforms :ruby do
   if ENV['DB'] == 'mysql'
     gem 'mysql2'
   else
-    gem 'pg', '~> 1.1'
+    gem 'pg'
   end
 end
 
@@ -35,7 +35,7 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'rswag-specs'
   gem 'jsonapi-rspec'
-  gem 'simplecov', '0.17.1'
+  gem 'simplecov'
   gem 'webmock'
   gem 'timecop'
   gem 'rails-controller-testing'
@@ -44,7 +44,6 @@ end
 group :test, :development do
   gem 'awesome_print'
   gem 'gem-release'
-  gem 'redis'
   gem 'rubocop', '~> 1.22.3', require: false # bumped
   gem 'rubocop-rspec', require: false
   gem 'pry-byebug'
