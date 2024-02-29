@@ -1,22 +1,25 @@
 # Spree Rails Frontend
 
-This is the Spree Storefront extracted from Spree < 4.3 which was upgraded to Turbo/Hotwire.
+This is the Spree Storefront extracted from Spree < 4.3 which was upgraded to Turbo and Hotwire.
+It is based on Bootstrap 4. It is battle tested and is used in production by many stores.
+
+This storefront includes also Checkout and Cart functionality providing a complete shopping experience.
 
 ## Developed by
 
-[![Vendo](https://assets-global.website-files.com/6230c485f2c32ea1b0daa438/623372f40a8c54ca9aea34e8_vendo%202.svg)](https://getvendo.com?utm_source=spree_frontend_github)
+<a href="https://getvendo.com?utm_source=spree_auth_github"><img src="https://cdn.getvendo.com/assets/vendo-logo-4bda02af8c99bc2ecc5a400120f0ebe4eafcd385e02e25f198a8c355ab75d1ff.png" height=50 alt="Vendo - Start your own multi-brand marketplace" /></a>
 
-> All-in-one platform for all your Marketplace and B2B eCommerce needs. [Start your 30-day free trial](https://e98esoirr8c.typeform.com/contactvendo?typeform-source=spree_sdk_github)
+<a href="http://sparksolutions.co?utm_source=github"><img src="https://sparksolutions.co/wp-content/themes/sparksolutions/images/logo.svg" height=50 alt="Spark Solutions - Ruby on Rails and Spree Commerce developers"></a>
 
 ## Installation
 
-Add
+Run
 
-```ruby
-gem 'spree_frontend'
+```bash
+bundle add 'spree_frontend'
 ```
 
-to your `Gemfile`, making sure that the `spree_frontend` gem is before `spree_auth_devise`.
+Make sure that the `spree_frontend` gem is before `spree_auth_devise`.
 
 Run:
 
@@ -30,14 +33,11 @@ bin/rails g spree:frontend:install
 #### Disabled 'Add to Cart' Button Issue
 
 If you notice that the 'Add to Cart' button is disabled on product pages, try the following:
-* run `yarn build` again in your main repo
-* if that doesn't fix the issue, try running the following setup commands again:
-  ```
-  bin/rails javascript:install:esbuild
+  
+  ```bash
   bin/rails turbo:install
   bin/rails g spree:frontend:install
-  yarn build
-  rake assets:clean assets:precompile
+  bundle exec rake assets:clean assets:precompile
   ```
 
 This issue may come up if you switch the source of your `spree_frontend` in your Gemfile, e.g. from github to a local path, etc.
@@ -50,21 +50,20 @@ This error results from the routes defined in `spree_frontend` and `spree_auth_d
 
 ## Running Tests
 
-In order to generate the dummy app required for running tests, you’ll need to have the following installed on your machine:
-* node v16.13.1 (npm v8.1.2)
-* yarn ≥ v1.22.15
-* ruby v3.0.3
-
 To run tests locally, first run `bundle exec rake test_app`, then `bundle exec rspec`.
 
 ### Troubleshooting
+
 If you are running on a Mac with an M1 processor, you may run into the following error when running tests:
-```          
+
+```bash
 Webdrivers::NetworkError:
 Net::HTTPServerException: 404 "Not Found"
 ```
+
 If so, update your gemfile locally to get version 5.0 or higher for the web drivers gem:
-```
+
+```bash
 gem 'webdrivers', '~> 5.0'
 ```
 
