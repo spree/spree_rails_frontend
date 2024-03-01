@@ -15,7 +15,7 @@ Spree.enableSave = function () {
   $('#checkout form').data('submitted', false).find(':submit, :image').attr('disabled', false).addClass('primary').removeClass('disabled')
 }
 
-Spree.ready(function () {
+document.addEventListener("turbo:load", function() {
   Spree.Checkout = {}
 
   var formCheckoutConfirm = $('form#checkout_form_confirm')

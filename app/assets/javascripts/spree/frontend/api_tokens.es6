@@ -1,4 +1,4 @@
-Spree.fetchApiTokens = function () {
+const fetchApiTokens = () => {
   fetch(Spree.routes.api_tokens, {
     method: 'GET',
     credentials: 'same-origin'
@@ -8,13 +8,10 @@ Spree.fetchApiTokens = function () {
         response.json().then(function (json) {
           SpreeAPI.orderToken = json.order_token
           SpreeAPI.oauthToken = json.oauth_token
-          Spree.apiTokensFetched = true
         })
         break
     }
   })
 }
 
-Spree.ready(function () {
-  if (!Spree.apiTokensFetched) Spree.fetchApiTokens()
-})
+document.addEventListener("turbo:load", fetchApiTokens)

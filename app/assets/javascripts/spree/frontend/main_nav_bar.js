@@ -1,4 +1,4 @@
-Spree.ready(function () {
+document.addEventListener("turbo:load", function() {
   var $navLinks = $('.main-nav-bar .nav-link.dropdown-toggle')
   var $dropdownMenu = $('.main-nav-bar .dropdown-menu')
   var SHOW_CLASS = 'show'
