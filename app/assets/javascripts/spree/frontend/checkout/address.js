@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   Spree.onAddress = function() {
     if ($('#checkout_form_address').length) {
       Spree.updateState = function(region) {

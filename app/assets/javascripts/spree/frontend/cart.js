@@ -1,6 +1,6 @@
 //= require spree/frontend/coupon_manager
 
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   var formUpdateCart = $('form#update-cart')
 
   function buildEventTriggerObject(dataset, quantity) {

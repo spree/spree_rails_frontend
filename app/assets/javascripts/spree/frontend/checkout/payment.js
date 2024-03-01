@@ -4,7 +4,7 @@ var CARD_EXPIRATION_SELECTOR = '.cardExpiry'
 var CARD_CODE_SELECTOR = '.cardCode'
 
 //= require spree/frontend/coupon_manager
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   Spree.onPayment = function () {
     if ($('#checkout_form_payment').length) {
       if ($('#existing_cards').length) {

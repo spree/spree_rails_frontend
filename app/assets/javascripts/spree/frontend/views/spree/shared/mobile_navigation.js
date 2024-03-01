@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
 
   function MobileNavigationManager()  {
     this.mobileNavigation = document.querySelector('.mobile-navigation');

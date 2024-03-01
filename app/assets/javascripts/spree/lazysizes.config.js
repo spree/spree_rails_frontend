@@ -3,6 +3,6 @@ window.lazySizesConfig.loadMode = 1
 window.lazySizesConfig.init = false
 window.lazySizesConfig.loadHidden = false
 
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   window.lazySizes.init()
 })

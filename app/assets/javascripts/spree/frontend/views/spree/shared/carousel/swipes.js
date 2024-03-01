@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   Spree.addSwipeEventListeners = function($carousel) {
     var touchStartX = 0
     var touchStartY = 0

@@ -1,4 +1,4 @@
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   document.getElementById('overlay').addEventListener('click', function () {
     var noProductElement = document.getElementById('no-product-available')
     document.getElementById("overlay").classList.remove('shown');

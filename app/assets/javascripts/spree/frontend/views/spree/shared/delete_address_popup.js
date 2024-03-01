@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   var deleteAddressLinks = document.querySelectorAll('.js-delete-address-link');
   if (deleteAddressLinks.length > 0) {
     deleteAddressLinks.forEach(function(deleteLink) {
