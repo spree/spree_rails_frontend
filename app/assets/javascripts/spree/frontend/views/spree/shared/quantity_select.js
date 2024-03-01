@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   var quantitySelectSelector = '.quantity-select'
   var quantitySelectDecreaseSelector = '.quantity-select-decrease'
   var quantitySelectIncreaseSelector = '.quantity-select-increase'

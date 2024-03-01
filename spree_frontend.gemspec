@@ -36,6 +36,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails',    '~> 4.3'
   s.add_dependency 'sass-rails',      '>= 5'
   s.add_dependency 'turbo-rails'
+  s.add_dependency 'stimulus-rails'
+  s.add_dependency 'importmap-rails'
   s.add_dependency 'responders'
   s.add_dependency 'sprockets', '~> 4.0'
   s.add_dependency 'flag-icons-rails', '~> 3.4'

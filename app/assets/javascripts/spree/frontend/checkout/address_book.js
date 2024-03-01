@@ -1,4 +1,4 @@
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   if ($('.select_address').length > 0) {
     $('input#order_use_billing').unbind('change');
 

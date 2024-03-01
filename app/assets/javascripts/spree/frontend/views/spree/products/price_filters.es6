@@ -1,4 +1,4 @@
-Spree.ready(function() {
+document.addEventListener("turbo:load", function() {
   class PriceRangeFilter {
     constructor(inputsContainer, filterButton) {
       this.inputsContainer = inputsContainer

@@ -60,7 +60,7 @@ ShippingTotalManager.prototype.bindEvent = function () {
   }.bind(this))
 }
 
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   var input = {
     orderTotal: $('#summary-order-total'),
     taxTotal: $('[data-hook="tax-total"]'),

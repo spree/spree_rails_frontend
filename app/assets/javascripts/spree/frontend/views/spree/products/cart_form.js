@@ -276,7 +276,7 @@ function CartForm($, $cartForm) {
   this.constructor()
 }
 
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   Spree.variantById = function($cartForm, variantId) {
     var cartFormVariants = JSON.parse($cartForm.attr('data-variants'))
     return (

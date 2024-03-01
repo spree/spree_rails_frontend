@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   var modalCarousel = $('#productModalThumbnailsCarousel')
   if (modalCarousel.length) {
     ThumbnailsCarousel($, modalCarousel)

@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   // Synchronize carousels.
 
   var carouselGroupIdentifierAttributeName =

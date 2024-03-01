@@ -1,4 +1,4 @@
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   // Adjust single carousel based on picked variant.
 
   var productDetailsPage = $('#product-details')

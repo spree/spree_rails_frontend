@@ -83,7 +83,7 @@ function ThumbnailsCarousel($, carousel) {
   this.constructor()
 }
 
-Spree.ready(function($) {
+document.addEventListener("turbo:load", function() {
   // Adjust thumbnails carousel based on picked variant.
 
   if ($('#product-details').length) {

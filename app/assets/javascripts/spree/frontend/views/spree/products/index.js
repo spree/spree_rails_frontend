@@ -1,4 +1,4 @@
-Spree.ready(function ($) {
+document.addEventListener("turbo:load", function() {
   $('#sort-by-overlay-show-button').click(function () {
     $('#sort-by-overlay').show();
   });
