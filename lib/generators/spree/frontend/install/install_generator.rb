@@ -23,8 +23,6 @@ module Spree
           directory 'homepage', './app/assets/images/homepage'
           # SCSS theming
           template 'variables.scss', './app/assets/stylesheets/spree/frontend/variables/variables.scss'
-          # Sprockets 4 manifest
-          template 'app/assets/config/manifest.js', force: Rails.env.test?
           # home page template
           directory 'home', './app/views/spree/home'
         end
