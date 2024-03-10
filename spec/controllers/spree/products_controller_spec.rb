@@ -80,18 +80,20 @@ describe Spree::ProductsController, type: :controller do
       expect(assigns(:products)).to eq([])
     end
 
-    it 'calls fresh_when method' do
-      expect(subject).to receive(:fresh_when)
+    context 'when http_cache_enabled is set to true' do
+      before do
+        allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
+        allow(Spree::Frontend::Config).to receive(:[]).with(:http_cache_enabled).and_return(true)
+      end
 
-      get :index
+      it 'calls fresh_when method' do
+        expect(subject).to receive(:fresh_when)
+
+        get :index
+      end
     end
 
     context 'when http_cache_enabled is set to false' do
-      before do
-        allow(Spree::Frontend::Config).to receive(:[]).with(anything).and_call_original
-        allow(Spree::Frontend::Config).to receive(:[]).with(:http_cache_enabled).and_return(false)
-      end
-
       it 'does not call fresh_when method' do
         expect(subject).not_to receive(:fresh_when)
 
