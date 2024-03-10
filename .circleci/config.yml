@@ -7,7 +7,6 @@ defaults: &defaults
     BUNDLE_JOBS: 4
     BUNDLE_RETRY: 3
     BUNDLE_PATH: ~/spree/vendor/bundle
-    RAILS_VERSION: '~> 7.1.0'
   working_directory: ~/spree
   docker:
     - image: &ruby_image cimg/ruby:3.3.0-browsers
@@ -80,7 +79,7 @@ jobs:
 
   tests_mysql:
     <<: *run_tests
-    environment: &mysql_environment
+    environment:
       <<: *environment
       DB: mysql
       DB_HOST: 127.0.0.1
@@ -93,7 +92,7 @@ jobs:
 
   tests_postgres:
     <<: *run_tests
-    environment: &postgres_environment
+    environment:
       <<: *environment
       DB: postgres
       DB_HOST: localhost
@@ -105,7 +104,6 @@ jobs:
           POSTGRES_USER: postgres
 
 workflows:
-  version: 2
   main:
     jobs:
       - bundle
