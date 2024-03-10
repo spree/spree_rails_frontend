@@ -8,7 +8,7 @@
 <%= stylesheet_link_tag 'spree/frontend/all', media: 'screen', data: { turbo_track: 'reload' } %>
 <%= csrf_meta_tags %>
 
-<%= javascript_importmap_tags %>
+<%= javascript_importmap_tags('application-spree-frontend') %>
 <%= render 'spree/shared/paths' %>
 <%= render 'spree/shared/locale_and_currency' %>
 <%= javascript_include_tag 'spree/frontend/all', defer: true, data: { turbo_track: 'reload' } %>

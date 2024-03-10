@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_frontend'
   s.version     = Spree::Frontend.version
-  s.authors     = ['Sean Schofield', 'Spark Solutions', 'Vendo Inc.']
+  s.authors     = ['Sean Schofield', 'Spark Solutions', 'Vendo Connect Inc.']
   s.email       = 'hello@spreecommerce.org'
   s.summary     = 'The default Storefront built with Rails and Turbo/Hotwire for Spree eCommerce platform'
   s.description = s.summary
