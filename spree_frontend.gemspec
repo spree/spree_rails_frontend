@@ -4,19 +4,19 @@ require_relative 'lib/spree/frontend/version'
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_frontend'
-  s.version     = Spree::Frontend.version
-  s.authors     = ['Sean Schofield', 'Spark Solutions', 'Vendo Connect Inc.']
+  s.version     = Spree::Frontend::VERSION
+  s.authors     = ['Sean Schofield', 'Spark Solutions Sp. z o.o.', 'Vendo Connect Inc.']
   s.email       = 'hello@spreecommerce.org'
-  s.summary     = 'The default Storefront built with Rails and Turbo/Hotwire for Spree eCommerce platform'
+  s.summary     = 'Spree Commerce Storefront built with Rails and Turbo/Hotwire'
   s.description = s.summary
   s.homepage    = 'https://spreecommerce.org'
   s.license     = 'BSD-3-Clause'
 
   s.metadata = {
-    "bug_tracker_uri"   => "https://github.com/spree/spree/issues",
-    "changelog_uri"     => "https://github.com/spree/spree/releases/tag/v#{s.version}",
-    "documentation_uri" => "https://dev-docs.spreecommerce.org/",
-    "source_code_uri"   => "https://github.com/spree/spree/tree/v#{s.version}",
+    "bug_tracker_uri"   => "https://github.com/spree/spree_rails_frontend/issues",
+    "changelog_uri"     => "https://github.com/spree/spree_rails_frontend/releases/tag/v#{s.version}",
+    "documentation_uri" => "https://docs.spreecommerce.org/",
+    "source_code_uri"   => "https://github.com/spree/spree_rails_frontend/tree/v#{s.version}",
   }
 
   s.required_ruby_version = '>= 3.0'
@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_api', ">= #{s.version}"
-  s.add_dependency 'spree_core', ">= #{s.version}"
+  s.add_dependency 'spree_api', "~> 4.7"
+  s.add_dependency 'spree_core', "~> 4.7"
 
   s.add_dependency 'babel-transpiler', '~> 0.7'
   s.add_dependency 'bootstrap',       '~> 4.0'

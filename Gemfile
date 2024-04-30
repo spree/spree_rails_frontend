@@ -19,7 +19,7 @@ platforms :ruby do
   elsif ENV['DB'] == 'postgres'
     gem 'pg'
   else
-    gem 'sqlite3'
+    gem 'sqlite3', '~> 1.4'
   end
 end
 
@@ -28,7 +28,6 @@ group :test do
   gem 'capybara-screenshot'
   gem 'capybara-select-2'
   gem 'database_cleaner', '~> 2.0'
-  gem 'email_spec'
   gem 'factory_bot_rails', '~> 6.0'
   gem 'multi_json'
   gem 'rspec-activemodel-mocks'
