@@ -28,6 +28,16 @@ bundle install
 bin/rails g spree:frontend:install
 ```
 
+### Development
+
+You can easily import all storefront templates to your application by running:
+
+```bash
+bin/rails g spree:frontend:copy_storefront
+```
+
+This will allow you to easily customize the look and feel of your storefront.
+
 ### Troubleshooting
 
 #### Disabled 'Add to Cart' Button Issue
@@ -69,4 +79,4 @@ gem 'webdrivers', '~> 5.0'
 
 ## Customization
 
-[Developer documentation](https://dev-docs.spreecommerce.org/customization/storefront)
+[Developer documentation](https://docs.spreecommerce.org/customization/storefront)
