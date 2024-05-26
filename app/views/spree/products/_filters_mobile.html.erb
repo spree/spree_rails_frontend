@@ -15,7 +15,7 @@
           <% ot_downcase_name = option_type_name.downcase %>
 
           <div class="card plp-overlay-card">
-            <div class="card-header text-uppercase <%= 'collapsed' if params[ot_downcase_name].blank? %> plp-overlay-card-header" data-toggle="collapse" id="filtersMobile<%= option_type_name %>" data-target="#collapseFilterMobile<%= option_type_name %>" aria-expanded="true" aria-controls="collapseFilterMobile<%= option_type_name %>" role="heading" aria-level="3">
+            <div class="card-header <%= 'collapsed' if params[ot_downcase_name].blank? %> plp-overlay-card-header" data-toggle="collapse" id="filtersMobile<%= option_type_name %>" data-target="#collapseFilterMobile<%= option_type_name %>" aria-expanded="true" aria-controls="collapseFilterMobile<%= option_type_name %>" role="heading" aria-level="3">
               <%= option_type.presentation %>
               <%= icon(name: 'arrow-right',
                       classes: 'spree-icon-arrow spree-icon-arrow-right mt-1 float-right arrow plp-overlay-card-header-arrow',
@@ -35,7 +35,7 @@
             <% property_name = property.name %>
             <% collapsed = params.dig(:properties, property.filter_param).blank? %>
             <div class="card plp-overlay-card">
-              <div class="card-header text-uppercase <%= 'collapsed' if collapsed %> plp-overlay-card-header" data-toggle="collapse" id="filtersMobile<%= property_name %>" data-target="#collapseFilterMobile<%= property_name %>" aria-expanded="true" aria-controls="collapseFilterMobile<%= property_name %>" role="heading" aria-level="3">
+              <div class="card-header <%= 'collapsed' if collapsed %> plp-overlay-card-header" data-toggle="collapse" id="filtersMobile<%= property_name %>" data-target="#collapseFilterMobile<%= property_name %>" aria-expanded="true" aria-controls="collapseFilterMobile<%= property_name %>" role="heading" aria-level="3">
                 <%= property.presentation %>
                 <%= icon(name: 'arrow-right',
                          classes: 'spree-icon-arrow spree-icon-arrow-right mt-1 float-right arrow plp-overlay-card-header-arrow',
@@ -57,7 +57,7 @@
         <% end %>
 
         <div class="card plp-overlay-card">
-          <div class="card-header text-uppercase <%= 'collapsed' if params[:price].blank? %> plp-overlay-card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour" role="heading" aria-level="3">
+          <div class="card-header <%= 'collapsed' if params[:price].blank? %> plp-overlay-card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour" role="heading" aria-level="3">
             <%= Spree.t('plp.price') %>
             <%= icon(name: 'arrow-right',
                     classes: 'spree-icon-arrow spree-icon-arrow-right mt-1 float-right arrow plp-overlay-card-header-arrow',

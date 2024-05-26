@@ -6,7 +6,7 @@
           <h4 class="text-uppercase checkout-content-header checkout-content-shipping-methods-header mb-1">
             <%= Spree.t('checkout_page.delivery_method') %>
           </h4>
-          <div id="shipToLocation" class="mb-4 text-uppercase">
+          <div id="shipToLocation" class="mb-4">
             <%= Spree.t(:ship_to) %>
             <span class="text-muted"><%= @order.shipping_address.address1 %></span> -
               <% if @order.shipping_address.zipcode.present? %> <span class="text-muted"><%= @order.shipping_address.zipcode %></span> - <% end %>

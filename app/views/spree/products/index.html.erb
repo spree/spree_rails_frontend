@@ -11,7 +11,7 @@
   <% else %>
     <% if params[:keywords] %>
       <div class="container d-md-flex pt-md-5">
-        <div class="plp-results-text text-uppercase mx-md-auto py-md-5">
+        <div class="plp-results-text mx-md-auto py-md-5">
           <%= "#{@products.total_count} #{Spree.t('plp.results_for')} '#{params[:keywords].upcase}'" %>
         </div>
       </div>

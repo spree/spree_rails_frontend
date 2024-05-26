@@ -226,45 +226,17 @@
 
   &-order-status {
     order: 2;
-    font-size: font-px-to-rem(14px);
-    text-transform: uppercase;
-    @include media-breakpoint-up(md) {
-      font-size: font-px-to-rem(26px);
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: font-px-to-rem(18px);
-      text-transform: initial;
-    }
   }
 
   &-order-date {
     order: 1;
     font-size: 14px;
     font-size: font-px-to-rem(14px);
-    @include media-breakpoint-up(md) {
-      font-size: font-px-to-rem(26px);
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: font-px-to-rem(18px);
-    }
   }
 
   &-order-total {
     order: 4;
     font-size: font-px-to-rem(16px);
-    @include media-breakpoint-up(md) {
-      font-size: font-px-to-rem(29px);
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: font-px-to-rem(18px);
-    }
-  }
-
-  &-order-payment-state,
-  &-order-shipment-state {
-    @include media-breakpoint-up(md) {
-      font-size: font-px-to-rem(18px);
-    }
   }
 
   @include media-breakpoint-between(xs, md) {

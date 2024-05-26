@@ -4,7 +4,7 @@
       <%= link_to product_image(line_item.variant), spree.product_path(line_item.product) %>
       <div class="d-flex flex-column mt-2 mt-lg-0">
         <div><%= link_to line_item.name, spree.product_path(line_item.product) %></div>
-        <ul class="checkout-confirm-order-details-line-items-line-item-name-options text-uppercase list-unstyled mb-0">
+        <ul class="checkout-confirm-order-details-line-items-line-item-name-options list-unstyled mb-0">
           <% line_item.variant.option_values.sort { |ov| ov.option_type.position }.each do |ov| %>
           <li>
             <% # TODO: rework option values so options_text method can be used here %>

@@ -153,19 +153,8 @@
       }
 
       .item-details {
-        text-transform: uppercase;
-        font-size: font-px-to-rem(12px);
         font-weight: 500;
         line-height: 1.4;
-        @include media-breakpoint-up(sm) {
-          font-size: font-px-to-rem(14px);
-          margin-top: 3px;
-          margin-bottom: 3px;
-        }
-        @include media-breakpoint-up(lg) {
-          font-size: font-px-to-rem(12px);
-          margin: 0;
-        }
       }
     }
     &-price {

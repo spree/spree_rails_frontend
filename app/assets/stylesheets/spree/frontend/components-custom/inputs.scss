@@ -1,4 +1,4 @@
-.spree-flat-input {
+.form-control {
   color: theme-color("secondary");
   transition: basic-transition(border-color);
   padding: 15px;
@@ -7,7 +7,6 @@
   border-width: 1px;
   border-style: solid;
   border-color: $second-global-border;
-  border-radius: 0;
   outline: none;
   font-size: font-px-to-rem(12px);
   line-height: inherit;
@@ -25,13 +24,10 @@
   &:focus {
     border-color: theme-color("secondary");
   }
-  &::placeholder {
-    text-transform: uppercase;
-  }
 }
 
 .spree-flat-select {
-  @extend .spree-flat-input;
+  @extend .form-control;
   appearance: none;
   padding-top:22px;
   padding-bottom:21px;
@@ -58,7 +54,6 @@
 
 .spree-flat-label {
   color: theme-color("secondary");
-  text-transform: uppercase;
   font-size: font-px-to-rem(12px);
 
   @include media-breakpoint-up(sm) {
@@ -105,7 +100,6 @@
     width: 22px;
     height: 22px;
     font-size: 0;
-    border-radius: 0;
     border: 2px solid theme-color("secondary");
     background-color: $input-background;
     cursor: pointer;
@@ -199,47 +193,6 @@
 
   @include media-breakpoint-up(lg) {
     font-size: font-px-to-rem(16px);
-  }
-}
-
-.spree-btn {
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-  font-size: font-px-to-rem(14px);
-  font-weight: bold;
-
-  &.btn-primary {
-    font-size: font-px-to-rem(17px);
-  }
-
-  &.btn-outline-primary {
-    border-width: 2px;
-  }
-
-  @include media-breakpoint-up(sm) {
-    padding-top: 14px;
-    padding-bottom: 14px;
-
-    &.btn-primary {
-      font-size: font-px-to-rem(28px);
-    }
-
-    &.btn-outline-primary {
-      font-size: font-px-to-rem(28px);
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
-    padding-top: 6px;
-    padding-bottom: 6px;
-
-    &.btn-primary {
-      font-size: font-px-to-rem(20px);
-    }
-
-    &.btn-outline-primary {
-      font-size: font-px-to-rem(20px);
-    }
   }
 }
 

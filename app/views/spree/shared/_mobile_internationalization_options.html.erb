@@ -22,7 +22,7 @@
         <% stores.each do |store| %>
           <li class="d-flex justify-content-between align-items-center mobile-navigation-list-item">
             <%= country_flag_icon(store_country_iso(store)) %>
-            <%= store_link(store, class: "dropdown-item text-uppercase d-flex #{'font-weight-bold' if current_store == store}") %>
+            <%= store_link(store, class: "dropdown-item d-flex #{'font-weight-bold' if current_store == store}") %>
           </li>
         <% end %>
       <% else %>

@@ -1,5 +1,5 @@
 <% if spree_menu.present? %>
-  <div class="position-fixed text-uppercase d-xl-none mobile-navigation" role="navigation" aria-label="<%= Spree.t('nav_bar.mobile') %>">
+  <div class="position-fixed d-xl-none mobile-navigation" role="navigation" aria-label="<%= Spree.t('nav_bar.mobile') %>">
     <div class="container d-flex align-items-center justify-content-between header-spree" data-hook>
       <button class="m-0 p-0" id="mobile-navigation-back-button" aria-label="<%= Spree.t('nav_bar.go_to_previous_menu') %>">
         <%= icon(name: 'arrow-right',

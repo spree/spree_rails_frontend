@@ -10,7 +10,7 @@ module Spree
           method_name = I18n.t("activerecord.attributes.spree/address.#{method}")
           required = Spree.t(:required)
           form.text_field(method,
-                          class: ['spree-flat-input'].compact,
+                          class: ['form-control'].compact,
                           required: is_required,
                           placeholder: is_required ? "#{method_name} #{required}" : method_name,
                           aria: { label: method_name }) +
@@ -27,7 +27,7 @@ module Spree
       method_name = Spree.t(:zipcode)
       required = Spree.t(:required)
       form.text_field(:zipcode,
-                      class: ['spree-flat-input'].compact,
+                      class: ['form-control'].compact,
                       required: is_required,
                       placeholder: is_required ? "#{method_name} #{required}" : method_name,
                       aria: { label: Spree.t(:zipcode) }) +
@@ -48,7 +48,7 @@ module Spree
                                aria: { label: Spree.t(:state) },
                                disabled: !have_states) +
           form.text_field(:state_name,
-                          class: ['spree-flat-input'].compact,
+                          class: ['form-control'].compact,
                           aria: { label: Spree.t(:state) },
                           disabled: have_states,
                           placeholder: Spree.t(:state) + " #{Spree.t(:required)}") +
