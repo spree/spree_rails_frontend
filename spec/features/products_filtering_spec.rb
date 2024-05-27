@@ -61,7 +61,7 @@ describe 'Products filtering', :js do
   end
 
   def expect_working_filters_clearing
-    click_on 'CLEAR ALL'
+    click_on 'Clear All'
     expect(page).to have_content 'First shirt'
     expect(page).to have_content 'Second shirt'
     expect(page).not_to have_css('.plp-overlay-card-item--selected')
@@ -74,7 +74,7 @@ describe 'Products filtering', :js do
   it 'correctly filters Products' do
     visit spree.nested_taxons_path(taxon)
 
-    expect(page).not_to have_content('CLEAR ALL')
+    expect(page).not_to have_content('Clear All')
 
     search_by 'shirt'
     expect(page).to have_content 'First shirt'
@@ -111,7 +111,7 @@ describe 'Products filtering', :js do
     click_on_filter 'Price'
     fill_in "$ #{Spree.t(:min)}", with: '19'
     fill_in "$ #{Spree.t(:max)}", with: '20'
-    click_on 'DONE'
+    click_on 'Done'
     expect(page).to have_content 'Second shirt'
 
     expect_working_filters_clearing
