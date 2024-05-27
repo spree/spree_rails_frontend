@@ -20,7 +20,7 @@ describe 'Visiting the homepage with featured article section', type: :feature, 
     end
 
     it 'the Featured Article section displays the link without a language denomination' do
-      expect(page).to have_selector(:css, 'a[href="/pages/english-feature"]', text: "FEATURED ARTICLE BUTTON TEXT")
+      expect(page).to have_selector(:css, 'a[href="/pages/english-feature"]', text: "Featured Article Button Text")
     end
 
     it 'the Featured Article section displays the title text' do

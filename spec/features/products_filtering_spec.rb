@@ -57,7 +57,7 @@ describe 'Products filtering', :js do
   end
 
   def have_filter_with(value:)
-    have_css '.plp-overlay-card-item', text: value.upcase
+    have_css '.plp-overlay-card-item', text: value
   end
 
   def expect_working_filters_clearing
@@ -94,19 +94,19 @@ describe 'Products filtering', :js do
     click_on_filter 'Manufacturer', value: 'Wilson'
     expect(page).not_to have_content 'First shirt'
     expect(page).to have_content 'Second shirt'
-    expect(page).to have_selected_filter_with(value: 'WILSON')
+    expect(page).to have_selected_filter_with(value: 'Wilson')
 
     click_on_filter 'Brand', value: 'Zeta'
     expect(page).to have_content 'No results'
-    expect(page).to have_selected_filter_with(value: 'WILSON')
-    expect(page).to have_selected_filter_with(value: 'ZETA')
+    expect(page).to have_selected_filter_with(value: 'Wilson')
+    expect(page).to have_selected_filter_with(value: 'Zeta')
 
     click_on_filter 'Brand', value: 'Alpha'
     expect(page).not_to have_content 'First shirt'
     expect(page).to have_content 'Second shirt'
-    expect(page).to have_selected_filter_with(value: 'WILSON')
-    expect(page).to have_selected_filter_with(value: 'ZETA')
-    expect(page).to have_selected_filter_with(value: 'ALPHA')
+    expect(page).to have_selected_filter_with(value: 'Wilson')
+    expect(page).to have_selected_filter_with(value: 'Zeta')
+    expect(page).to have_selected_filter_with(value: 'Alpha')
 
     click_on_filter 'Price'
     fill_in "$ #{Spree.t(:min)}", with: '19'

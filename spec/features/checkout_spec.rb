@@ -502,7 +502,7 @@ describe 'Checkout', type: :feature, inaccessible: true, js: true do
       fill_in_credit_card_info
       click_on 'Save and Continue'
 
-      expect(page).to have_content(promotion.name.upcase)
+      expect(page).to have_content(promotion.name)
       expect(Spree::Payment.first.amount.to_f).to eq Spree::Order.last.total.to_f
     end
 

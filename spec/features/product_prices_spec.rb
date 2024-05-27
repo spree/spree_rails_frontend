@@ -63,7 +63,7 @@ describe 'Product with prices in multiple currencies', type: :feature, js: true 
 
       it 'doesnt render add to cart button' do
         expect(page).not_to have_content('Add To Cart')
-        expect(page).to have_content('THIS PRODUCT IS NOT AVAILABLE IN THE SELECTED CURRENCY')
+        expect(page).to have_content('This product is not available in the selected currency')
       end
     end
   end
