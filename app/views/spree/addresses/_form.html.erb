@@ -6,10 +6,9 @@
       <div id="<%= "#{address_id}country-selection" %>" class="d-block position-relative has-float-label">
         <%= address_form.collection_select :country_id, available_countries, :id, :name,
                                            { prompt: Spree.t(:country) },
-                                           { class: 'form-control spree-flat-select',
+                                           { class: 'custom-select spree-flat-select',
                                              aria: { label: Spree.t(:country) } } %>
-        <%= image_tag 'arrow.svg', class: 'position-absolute spree-flat-select-arrow' %>
-        <%= address_form.label(Spree.t(:country), Spree.t(:country), class:'text-uppercase') %>
+        <%= address_form.label(Spree.t(:country), Spree.t(:country)) %>
       </div>
     </div>
   <% elsif field == "state" %>

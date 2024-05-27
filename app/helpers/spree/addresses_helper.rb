@@ -53,9 +53,7 @@ module Spree
           form.label(Spree.t(:state).downcase,
                      raw(Spree.t(:state) + content_tag(:abbr, " #{Spree.t(:required)}")),
                      class: [have_states ? 'state-select-label' : nil, ' '].compact,
-                     id: address_id + '_state_label') +
-          image_tag('arrow.svg',
-                    class: [!have_states ? 'hidden' : nil, 'position-absolute spree-flat-select-arrow'].compact)
+                     id: address_id + '_state_label')
       ].join.tr('"', "'").delete("\n")
 
       content_tag :span, class: 'd-block position-relative' do
