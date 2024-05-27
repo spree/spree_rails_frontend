@@ -229,9 +229,6 @@
       }
 
       &-field {
-        input::-webkit-input-placeholder {
-          text-transform: uppercase;
-        }
         @include media-breakpoint-up(sm) {
           margin-top: 33px;
         }

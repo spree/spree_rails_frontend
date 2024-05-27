@@ -7,7 +7,7 @@
     <% child_taxons = [current_taxon, *current_taxon.children.where(hide_from_nav: false)] %>
     <% if current_taxon.level > 0 && child_taxons.size > 1 %>
       <div class="d-flex justify-content-center position-sticky sticky-top-90px taxon-subcategories-wrapper">
-        <div class="py-1 text-uppercase d-none d-xl-flex overflow-x taxon-subcategories">
+        <div class="py-1 d-none d-xl-flex overflow-x taxon-subcategories">
           <% child_taxons.each_with_index.map do |subcategory, index| %>
             <%=
               link_to_unless subcategory == taxon,

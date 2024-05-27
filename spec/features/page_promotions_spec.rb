@@ -22,7 +22,7 @@ describe 'page promotions', type: :feature, js: true do
     expect(page).not_to have_field('order_applied_coupon_code', with: 'PROMOTION ($10 OFF)')
     visit '/content/test'
     visit '/checkout'
-    expect(page).to have_content('PROMOTION ($10 OFF)')
+    expect(page).to have_content('Promotion ($10 off)')
   end
 
   it "does not activate an adjustment for a path that doesn't have a promotion" do

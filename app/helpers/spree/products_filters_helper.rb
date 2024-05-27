@@ -2,10 +2,10 @@ module Spree
   module ProductsFiltersHelper
     PRICE_FILTER_NAME = 'price'.freeze
 
-    FILTER_LINK_CSS_CLASSES = 'd-inline-block text-uppercase py-1 px-2 m-1 plp-overlay-card-item'.freeze
+    FILTER_LINK_CSS_CLASSES = 'd-inline-block py-1 px-2 m-1 plp-overlay-card-item'.freeze
     ACTIVE_FILTER_LINK_CSS_CLASSES = 'plp-overlay-card-item--selected'.freeze
 
-    CLEAR_ALL_FILTERS_LINK_CSS_CLASSES = 'btn spree-btn btn-outline-primary w-100 mb-4'.freeze
+    CLEAR_ALL_FILTERS_LINK_CSS_CLASSES = 'btn spree-btn btn-sm btn-outline-primary w-100 mb-4'.freeze
 
     def price_filters
       @price_filters ||= [
@@ -38,7 +38,7 @@ module Spree
 
     def price_filter_input(name:, value:, placeholder:, **html_options)
       price_value = value&.zero? ? '' : value
-      style_class = "spree-flat-input #{html_options[:class]}"
+      style_class = "form-control form-control-sm #{html_options[:class]}"
 
       number_field_tag(
         name, price_value,

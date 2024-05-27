@@ -1,5 +1,5 @@
 <% cache [base_cache_key, taxon, 'header'] do %>
-  <div class="py-md-3 text-uppercase taxon-title">
+  <div class="py-md-3 taxon-title">
     <%= @taxon.name %>
   </div>
   <% unless @taxon.description.blank? %>

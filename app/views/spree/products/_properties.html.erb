@@ -1,5 +1,5 @@
 <% unless @product_properties.blank? %>
-  <h3 class="pt-4 font-weight-bold text-uppercase product-details-subtitle"><%= Spree.t(:details) %></h3>
+  <h3 class="pt-4 font-weight-bold product-details-subtitle"><%= Spree.t(:details) %></h3>
   <ul id="product-properties" class="m-0 list-unstyled product-properies" data-hook>
     <% @product_properties.each do |product_property| %>
       <% if product_property.show_property? %>

@@ -500,18 +500,18 @@ describe 'Visiting Products', type: :feature, inaccessible: true do
 
       it 'shows back-ordered in the HTML when product is on backorder' do
         visit spree.product_path(product) + '?variant=' + variant2.id.to_s
-        expect(page).to have_content('BACKORDERED')
+        expect(page).to have_content('Backordered')
       end
 
       it 'shows out of stock in the HTML when the product is unavailable' do
         visit spree.product_path(product) + '?variant=' + variant3.id.to_s
-        expect(page).to have_content('OUT OF STOCK')
+        expect(page).to have_content('Out of Stock')
       end
 
       it 'does not update the variant HTML details if no variant is matched' do
         visit spree.product_path(product) + '?variant=9283923297832973283'
         expect(page).to have_content(variant1.price.to_s)
-        expect(page).to have_content('BACKORDERED')
+        expect(page).to have_content('Backordered')
       end
 
       it 'sets JSON in the Schema.org SKU, URL, price and availability' do

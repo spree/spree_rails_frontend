@@ -56,7 +56,7 @@
       <%= Spree.t(:products) %>
     </div>
     <div class="d-table" data-hook="order_details">
-      <div class="d-none d-lg-table-row text-secondary text-uppercase" data-hook="order_details_line_items_headers">
+      <div class="d-none d-lg-table-row text-secondary" data-hook="order_details_line_items_headers">
         <p class="d-table-cell pb-1">
           <%= Spree.t(:product) %>
         </p>
@@ -82,7 +82,7 @@
                   <%= link_to item.name, spree.product_path(item.product), class: 'checkout-confirm-order-details-line-items-line-item-name-link' %>
                 </div>
                 <% unless item.variant.is_master? %>
-                  <ul class="checkout-confirm-order-details-line-items-line-item-name-options text-uppercase list-unstyled mb-0">
+                  <ul class="checkout-confirm-order-details-line-items-line-item-name-options list-unstyled mb-0">
                     <% item.variant.option_values.sort { |ov| ov.option_type.position }.each do |ov| %>
                     <li>
                       <% # TODO: rework option values so options_text method can be used here %>
@@ -120,7 +120,7 @@
     <% unless @order.uneditable? %>
       <div data-hook="buttons">
         <% submit_label_key = @order.confirm? ? :place_order : :save_and_continue %>
-        <%= submit_tag Spree.t(submit_label_key), class: 'btn btn-primary text-uppercase font-weight-bold w-100 checkout-content-save-continue-button' %>
+        <%= submit_tag Spree.t(submit_label_key), class: 'btn btn-primary font-weight-bold w-100 checkout-content-save-continue-button' %>
       </div>
     <% end %>
   </div>

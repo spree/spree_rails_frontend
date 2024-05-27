@@ -10,13 +10,12 @@ module Spree
           method_name = I18n.t("activerecord.attributes.spree/address.#{method}")
           required = Spree.t(:required)
           form.text_field(method,
-                          class: ['spree-flat-input'].compact,
+                          class: ['form-control'].compact,
                           required: is_required,
                           placeholder: is_required ? "#{method_name} #{required}" : method_name,
                           aria: { label: method_name }) +
             form.label(method_name,
-                       is_required ? "#{method_name} #{required}" : method_name,
-                       class: 'text-uppercase')
+                       is_required ? "#{method_name} #{required}" : method_name)
         end
       end
     end
@@ -27,13 +26,12 @@ module Spree
       method_name = Spree.t(:zipcode)
       required = Spree.t(:required)
       form.text_field(:zipcode,
-                      class: ['spree-flat-input'].compact,
+                      class: ['form-control'].compact,
                       required: is_required,
                       placeholder: is_required ? "#{method_name} #{required}" : method_name,
                       aria: { label: Spree.t(:zipcode) }) +
         form.label(:zipcode,
                    is_required ? "#{method_name} #{required}" : method_name,
-                   class: 'text-uppercase',
                    id: address_id + '_zipcode_label')
     end
 
@@ -48,16 +46,14 @@ module Spree
                                aria: { label: Spree.t(:state) },
                                disabled: !have_states) +
           form.text_field(:state_name,
-                          class: ['spree-flat-input'].compact,
+                          class: ['form-control'].compact,
                           aria: { label: Spree.t(:state) },
                           disabled: have_states,
                           placeholder: Spree.t(:state) + " #{Spree.t(:required)}") +
           form.label(Spree.t(:state).downcase,
                      raw(Spree.t(:state) + content_tag(:abbr, " #{Spree.t(:required)}")),
-                     class: [have_states ? 'state-select-label' : nil, ' text-uppercase'].compact,
-                     id: address_id + '_state_label') +
-          image_tag('arrow.svg',
-                    class: [!have_states ? 'hidden' : nil, 'position-absolute spree-flat-select-arrow'].compact)
+                     class: [have_states ? 'state-select-label' : nil, ' '].compact,
+                     id: address_id + '_state_label')
       ].join.tr('"', "'").delete("\n")
 
       content_tag :span, class: 'd-block position-relative' do

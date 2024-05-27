@@ -5,11 +5,10 @@
     <div class="form-group checkout-content-inner-field" id="<%= "#{address_id}country" %>">
       <div id="<%= "#{address_id}country-selection" %>" class="d-block position-relative has-float-label">
         <%= address_form.collection_select :country_id, available_countries, :id, :name,
-                                           { prompt: Spree.t(:country).upcase },
-                                           { class: 'form-control spree-flat-select',
+                                           { prompt: Spree.t(:country) },
+                                           { class: 'custom-select spree-flat-select',
                                              aria: { label: Spree.t(:country) } } %>
-        <%= image_tag 'arrow.svg', class: 'position-absolute spree-flat-select-arrow' %>
-        <%= address_form.label(Spree.t(:country), Spree.t(:country).upcase, class:'text-uppercase') %>
+        <%= address_form.label(Spree.t(:country), Spree.t(:country)) %>
       </div>
     </div>
   <% elsif field == "state" %>
@@ -29,4 +28,4 @@
   <% end %>
 <% end %>
 
-<p class="text-right text-uppercase mb-5 checkout-content-inner-field"><span id="required_marker"><%= Spree.t(:required) %></span> <%= Spree.t(:required_fields) %></p>
+<p class="text-right mb-5 checkout-content-inner-field"><span id="required_marker"><%= Spree.t(:required) %></span> <%= Spree.t(:required_fields) %></p>

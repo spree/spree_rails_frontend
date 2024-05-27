@@ -22,14 +22,14 @@
                       <!-- Categories -->
                       <% if child.container? && child.code?('category') %>
                         <div class="category-links my-4 mx-2">
-                          <div class="category-links-header text-uppercase">
+                          <div class="category-links-header">
                             <%= child.name %>
                           </div>
                           <% if child.children.present? %>
                             <ul class="pl-0">
                               <% child.children.each do |category_link| %>
                                 <li>
-                                  <%= spree_nav_link_tag(category_link, { class: "text-uppercase main-nav-bar-category-links dropdown-item truncate" }) %>
+                                  <%= spree_nav_link_tag(category_link, { class: "main-nav-bar-category-links dropdown-item truncate" }) %>
                                 </li>
                               <% end %>
                             </ul>

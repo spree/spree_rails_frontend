@@ -204,7 +204,7 @@ describe 'Address', type: :feature, inaccessible: true do
       it 'the JS removes the required markers in the label and placeholder text' do
         select ug.name, from: @country_css
         find("input[placeholder='#{Spree.t(:zipcode)}']").set '98378'
-        expect(page).to have_css("label#{@zipcode_label_css}", text: Spree.t(:zipcode).upcase)
+        expect(page).to have_css("label#{@zipcode_label_css}", text: Spree.t(:zipcode))
       end
     end
   end
@@ -223,7 +223,7 @@ describe 'Address', type: :feature, inaccessible: true do
 
     it 'loads the page without the zipcode field showing required in the label and placeholder' do
       find("input[placeholder='#{Spree.t(:zipcode)}']").set '98378'
-      expect(page).to have_css("label#{@zipcode_label_css}", text: Spree.t(:zipcode).upcase)
+      expect(page).to have_css("label#{@zipcode_label_css}", text: Spree.t(:zipcode))
     end
 
     context 'When the country is changed to one that does require a zip code' do

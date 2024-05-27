@@ -95,7 +95,7 @@
   &-button {
     width: 306px;
     height: 29px;
-    background-color: #0074c2;
+    background-color: theme-color("primary");
     margin: 44px auto auto auto;
 
     @include media-breakpoint-up(md) {

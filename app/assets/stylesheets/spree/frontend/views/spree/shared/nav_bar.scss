@@ -21,22 +21,14 @@
   }
   .account-icon {
     svg {
-      width: 27.6px;
+      width: 24px;
       height: 24px;
-      @include media-breakpoint-up(xl) {
-        width: 41.4px;
-        height: 36px;
-      }
     }
   }
   .search-icons {
     svg {
       width: 24px;
       height: 24px;
-      @include media-breakpoint-up(xl) {
-        width: 36px;
-        height: 36px;
-      }
     }
   }
   &-search-menu {
@@ -64,20 +56,15 @@
         input#keywords {
           background: transparent;
           color: $meganav-font-color;
-          font-size: font-px-to-rem(14px);
           width: calc(100% - 40px);
           &:focus {
             outline: none;
           }
           &::placeholder {
-            text-transform: uppercase;
             color: theme-color("borders");
           }
           &::-webkit-search-cancel-button {
             display: none;
-          }
-          @include media-breakpoint-up(md) {
-            font-size: font-px-to-rem(22px);
           }
         }
         input[type="submit"] {

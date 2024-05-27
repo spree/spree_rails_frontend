@@ -13,6 +13,7 @@ require 'jquery-rails'
 require 'turbo-rails'
 require 'stimulus-rails'
 require 'responders'
+require 'active_link_to'
 
 require 'spree/frontend/middleware/seo_assist'
 require 'spree/frontend/engine'

@@ -502,7 +502,7 @@ describe 'Checkout', type: :feature, inaccessible: true, js: true do
       fill_in_credit_card_info
       click_on 'Save and Continue'
 
-      expect(page).to have_content(promotion.name.upcase)
+      expect(page).to have_content(promotion.name)
       expect(Spree::Payment.first.amount.to_f).to eq Spree::Order.last.total.to_f
     end
 
@@ -786,7 +786,7 @@ describe 'Checkout', type: :feature, inaccessible: true, js: true do
         remaining_amount = Spree::Money.new(order.total - amount.money.to_f)
         expect(page).to have_content(Spree.t('store_credit.applicable_amount', amount: amount).strip_html_tags)
         expect(page).to have_content(Spree.t('store_credit.additional_payment_needed', amount: remaining_amount).strip_html_tags)
-        expect(page).to have_content(Spree.t('store_credit.remove').upcase)
+        expect(page).to have_content(Spree.t('store_credit.remove'))
       end
 
       context 'remove store credits payments' do

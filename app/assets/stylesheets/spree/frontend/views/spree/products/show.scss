@@ -142,15 +142,6 @@
 }
 
 .product-description {
-  font-size: font-px-to-rem(12px);
-  @include media-breakpoint-up(sm) {
-    font-size: font-px-to-rem(16px);
-  }
-  @include media-breakpoint-up(md) {
-    font-size: font-px-to-rem(14px);
-    line-height: font-px-to-rem(26px);
-  }
-
   &-arrow {
     width: 44px;
     height: 44px;
@@ -158,17 +149,6 @@
 
   &-arrow:hover {
     cursor: pointer;
-  }
-}
-
-.product-properies {
-  font-size: font-px-to-rem(12px);
-  @include media-breakpoint-up(sm) {
-    font-size: font-px-to-rem(16px);
-  }
-  @include media-breakpoint-up(md) {
-    font-size: font-px-to-rem(14px);
-    line-height: font-px-to-rem(26px);
   }
 }
 

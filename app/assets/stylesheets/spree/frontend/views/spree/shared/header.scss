@@ -46,31 +46,6 @@ body {
       }
     }
   }
-  @include media-breakpoint-up(sm) {
-    height: $spree-header-tablet-height;
-    &-fluid {
-      &-logo {
-        img {
-          max-height: 50px;
-        }
-      }
-    }
-  }
-  @include media-breakpoint-up(xl) {
-    height: $spree-header-desktop-height;
-    &-fluid {
-      &-logo {
-        flex-basis: 0;
-        margin: 0 0 1rem;
-        img {
-          max-height: 50px;
-        }
-      }
-      &-primary-navigation {
-        flex-basis: auto;
-      }
-    }
-  }
 }
 
 #logo {

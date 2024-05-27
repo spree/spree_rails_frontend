@@ -56,7 +56,7 @@ describe 'Delivery', type: :feature, inaccessible: true, js: true do
     end
 
     it 'contains the correct address' do
-      expect(page).to have_text "SHIPPING TO: #{@street.upcase} - #{@zipcode.upcase} - US"
+      expect(page).to have_text "Shipping to: #{@street} - #{@zipcode} - US"
     end
   end
 

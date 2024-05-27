@@ -173,7 +173,7 @@ module Spree
       image_url = if image.present?
                     main_app.cdn_image_url(image.url('plp'))
                   else
-                    asset_path('noimage/plp.svg')
+                    asset_path('noimage/large.png')
                   end
 
       image_style = image&.style(:plp)

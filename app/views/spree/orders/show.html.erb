@@ -12,7 +12,7 @@
     <p class="order-show-explain w-100 text-center"><%= Spree.t(:order_success_explain) %></p>
   <% end %>
 
-  <p class="order-show-number text-uppercase w-100 text-center">
+  <p class="order-show-number w-100 text-center">
     <%= accurate_title %> / <%= pretty_date(@order.completed_at) %>
   </p>
   <%= render partial: 'spree/shared/order_details', locals: { order: @order } %>

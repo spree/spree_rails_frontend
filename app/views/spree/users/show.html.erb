@@ -12,7 +12,7 @@
       <dd class="account-page-user-info-item-definition"><%= @user.email %></dd>
 
       <div class="d-lg-inline-block account-page-user-info-item-store-credits">
-        <p class="my-0 text-uppercase text-center">
+        <p class="my-0 text-center">
           <%= Spree.t(:store_credit_name) %>
           <% @user.available_store_credits(current_store).each do |value| %>
             <br><b class="account-page-user-info-item-store-credits-amount"><%= value %></b>

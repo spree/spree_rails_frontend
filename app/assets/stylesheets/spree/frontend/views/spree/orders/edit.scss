@@ -91,19 +91,10 @@
             padding-right: 16px;
           }
         }
-        &:last-child {
-          @include media-breakpoint-up(lg) {
-            padding: 40px 0 22px 16px;
-          }
-        }
         border-top: none;
         border-bottom: 1px solid $global-border-style;
         padding: 22px 0;
         vertical-align: top;
-        @include media-breakpoint-up(lg) {
-          padding: 22px 50px 0 0;
-          vertical-align: middle;
-        }
       }
     }
   }
@@ -153,19 +144,8 @@
       }
 
       .item-details {
-        text-transform: uppercase;
-        font-size: font-px-to-rem(12px);
         font-weight: 500;
         line-height: 1.4;
-        @include media-breakpoint-up(sm) {
-          font-size: font-px-to-rem(14px);
-          margin-top: 3px;
-          margin-bottom: 3px;
-        }
-        @include media-breakpoint-up(lg) {
-          font-size: font-px-to-rem(12px);
-          margin: 0;
-        }
       }
     }
     &-price {
