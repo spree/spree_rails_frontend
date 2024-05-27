@@ -1,49 +1,9 @@
-.form-control {
-  color: theme-color("secondary");
-  transition: basic-transition(border-color);
-  padding: 15px;
-  width: 100%;
-  height: auto;
-  border-width: 1px;
-  border-style: solid;
-  border-color: $second-global-border;
-  outline: none;
-  font-size: font-px-to-rem(12px);
-  line-height: inherit;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  @include media-breakpoint-up(sm) {
-    padding: 25px;
-    font-size: font-px-to-rem(23px);
-  }
-  @include media-breakpoint-up(lg) {
-    padding: 20px;
-    font-size: font-px-to-rem(14px);
-  }
-  &:focus {
-    border-color: theme-color("secondary");
-  }
+.spree-flat-input {
+  @extend .form-control;
 }
 
 .spree-flat-select {
-  @extend .form-control;
-  appearance: none;
-  padding-top:22px;
-  padding-bottom:21px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  &-arrow {
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    @include media-breakpoint-up(sm) {
-      right: 23px;
-    }
-    @include media-breakpoint-up(lg) {
-      right: 20px;
-    }
-  }
+  @extend .custom-select;
 }
 
 .field_with_errors {
@@ -54,11 +14,6 @@
 
 .spree-flat-label {
   color: theme-color("secondary");
-  font-size: font-px-to-rem(12px);
-
-  @include media-breakpoint-up(sm) {
-    font-size: font-px-to-rem(17px);
-  }
 }
 
 .spree-checkbox-container {
@@ -75,16 +30,6 @@
   width: 22px;
   margin-right: 0.5rem;
 
-  @include media-breakpoint-up(sm) {
-    width: 32px;
-    height: 32px;
-  }
-
-  @include media-breakpoint-up(lg) {
-    width: 22px;
-    height: 22px;
-  }
-
   input[type="checkbox"] {
     opacity: 0;
     position: absolute;
@@ -100,19 +45,10 @@
     width: 22px;
     height: 22px;
     font-size: 0;
-    border: 2px solid theme-color("secondary");
+    border-radius: $input-border-radius;
+    border: 1px solid $input-border-color;
     background-color: $input-background;
     cursor: pointer;
-
-    @include media-breakpoint-up(sm) {
-      width: 32px;
-      height: 32px;
-    }
-
-    @include media-breakpoint-up(lg) {
-      width: 22px;
-      height: 22px;
-    }
   }
 
   label:after {
@@ -129,20 +65,6 @@
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
-
-    @include media-breakpoint-up(sm) {
-      width: 15px;
-      height: 10px;
-      top: 6px;
-      left: 6px;
-    }
-
-    @include media-breakpoint-up(lg) {
-      width: 12px;
-      height: 8px;
-      top: 4px;
-      left: 3px;
-    }
   }
 
   input[type="checkbox"]:focus + label {
@@ -154,23 +76,6 @@
 
     &:after {
       opacity: 1;
-    }
-  }
-
-  @include media-breakpoint-up(lg) {
-    height: 28px;
-    width: 28px;
-
-    label {
-      height: 28px;
-      width: 28px;
-    }
-
-    label:after {
-      width: 14px;
-      height: 9px;
-      top: 6px;
-      left: 5px;
     }
   }
 }

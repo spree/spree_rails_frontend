@@ -786,7 +786,7 @@ describe 'Checkout', type: :feature, inaccessible: true, js: true do
         remaining_amount = Spree::Money.new(order.total - amount.money.to_f)
         expect(page).to have_content(Spree.t('store_credit.applicable_amount', amount: amount).strip_html_tags)
         expect(page).to have_content(Spree.t('store_credit.additional_payment_needed', amount: remaining_amount).strip_html_tags)
-        expect(page).to have_content(Spree.t('store_credit.remove').upcase)
+        expect(page).to have_content(Spree.t('store_credit.remove'))
       end
 
       context 'remove store credits payments' do

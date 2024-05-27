@@ -131,7 +131,7 @@
         font-size: font-px-to-rem(16px);
         font-weight: 500;
         &--selected {
-          border: solid 2px $secondary-color;
+          border: solid 1px $secondary-color;
         }
       }
     }
@@ -308,7 +308,7 @@
         color: $font-color;
         font-size: font-px-to-rem(13px);
         &--selected {
-          border: solid 2px $secondary-color;
+          border: solid 1px $secondary-color;
         }
       }
       &:last-of-type {

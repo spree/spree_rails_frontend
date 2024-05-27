@@ -91,19 +91,10 @@
             padding-right: 16px;
           }
         }
-        &:last-child {
-          @include media-breakpoint-up(lg) {
-            padding: 40px 0 22px 16px;
-          }
-        }
         border-top: none;
         border-bottom: 1px solid $global-border-style;
         padding: 22px 0;
         vertical-align: top;
-        @include media-breakpoint-up(lg) {
-          padding: 22px 50px 0 0;
-          vertical-align: middle;
-        }
       }
     }
   }
