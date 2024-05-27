@@ -12,6 +12,7 @@
   </a>
   <div class="dropdown-menu text-right">
     <%= active_link_to Spree.t('plp.default'), url_for(permitted_params.merge(sort_by: nil)), class: 'dropdown-item', active: { sort_by: nil } %>
+    <%= active_link_to Spree.t('plp.name_a_z'), url_for(permitted_params.merge(sort_by: 'name-a-z')), class: 'dropdown-item', active: { sort_by: 'name-a-z' } %>
     <%= active_link_to Spree.t('plp.name_z_a'), url_for(permitted_params.merge(sort_by: 'name-z-a')), class: 'dropdown-item', active: { sort_by: 'name-z-a' } %>
     <%= active_link_to Spree.t('plp.newest_first'), url_for(permitted_params.merge(sort_by: 'newest-first')), class: 'dropdown-item', active: { sort_by: 'newest-first' } %>
     <%= active_link_to Spree.t('plp.price_high_to_low'), url_for(permitted_params.merge(sort_by: 'price-high-to-low')), class: 'dropdown-item', active: { sort_by: 'price-high-to-low' } %>
