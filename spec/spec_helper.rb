@@ -95,6 +95,7 @@ RSpec.configure do |config|
     reset_spree_preferences
 
     I18n.locale = :en
+    I18n.default_locale = :en
     I18n.fallbacks = { de: [:en], en: [:en], fr: [:en], 'es-MX': [:en] }
 
     country = create(:country, name: 'United States of America', iso_name: 'UNITED STATES', iso: 'US', states_required: true)
