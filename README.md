@@ -1,15 +1,15 @@
+# ⚠️ WARNING - maintenance mode
+
+This gem supports only Spree 4. For the Spree 5 storefront, please go to the [spree/spree] repository (https://github.com/spree/spree/tree/main/storefront).
+
+We will not be developing/merging new features for this gem. However, bug fixes and security patches are very welcome!
+
 # Spree Rails Frontend
 
 This is the Spree Storefront extracted from Spree < 4.3 which was upgraded to Turbo and Hotwire.
 It is based on Bootstrap 4. It is battle tested and is used in production by many stores.
 
 This storefront includes also Checkout and Cart functionality providing a complete shopping experience.
-
-## Developed by
-
-<a href="https://getvendo.com?utm_source=spree_auth_github"><img src="https://cdn.getvendo.com/assets/vendo-logo-4bda02af8c99bc2ecc5a400120f0ebe4eafcd385e02e25f198a8c355ab75d1ff.png" height=50 alt="Vendo - Start your own multi-brand marketplace" /></a>
-
-<a href="http://sparksolutions.co?utm_source=github"><img src="https://sparksolutions.co/wp-content/themes/sparksolutions/images/logo.svg" height=50 alt="Spark Solutions - Ruby on Rails and Spree Commerce developers"></a>
 
 ## Installation
 
