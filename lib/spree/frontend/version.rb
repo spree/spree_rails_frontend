@@ -1,6 +1,6 @@
 module Spree
   module Frontend
-    VERSION = '4.8.0'.freeze
+    VERSION = '4.8.1'.freeze
 
     def gem_version
       Gem::Version.new(VERSION)
