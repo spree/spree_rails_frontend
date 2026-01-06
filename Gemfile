@@ -6,7 +6,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
   actionmailer actionpack actionview activejob activemodel activerecord
   activestorage activesupport railties
 ].each do |rails_gem|
-  gem rails_gem, ENV.fetch('RAILS_VERSION', '~> 7.1.0'), require: false
+  gem rails_gem, ENV.fetch('RAILS_VERSION', '~> 7.2.0'), require: false
 end
 
 platforms :jruby do
@@ -48,12 +48,12 @@ group :test, :development do
   gem 'rubocop', '~> 1.22.3', require: false # bumped
   gem 'rubocop-rspec', require: false
   gem 'pry-byebug'
-  gem 'webdrivers'
+  gem 'selenium-webdriver', '>= 4.11'
   gem 'puma'
   gem 'ffaker'
 end
 
-spree_opts = { github: 'spree/spree', branch: ENV.fetch('SPREE_BRANCH', 'main') }
+spree_opts = { github: 'spree/spree', branch: ENV.fetch('SPREE_BRANCH', '4-10-stable') }
 gem 'spree_core', spree_opts
 gem 'spree_api', spree_opts
 

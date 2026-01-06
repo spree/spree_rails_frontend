@@ -42,7 +42,7 @@ require 'spree/testing_support/caching'
 require 'spree/testing_support/capybara_config'
 require 'spree/testing_support/image_helpers'
 require 'spree/testing_support/locale_helpers'
-require 'webdrivers'
+require 'selenium-webdriver'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -56,7 +56,6 @@ RSpec.configure do |config|
   config.color = true
   config.default_formatter = 'doc'
   config.fail_fast = ENV['FAIL_FAST'] || false
-  config.fixture_path = File.join(__dir__, 'fixtures')
   config.infer_spec_type_from_file_location!
   config.mock_with :rspec
   config.raise_errors_for_deprecations!

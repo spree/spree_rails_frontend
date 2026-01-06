@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe 'Cart', type: :feature, inaccessible: true, js: true do
-  before { Timecop.scale(100) }
-
-  after { Timecop.return }
 
   let(:store) { Spree::Store.default }
   let(:product) { create(:product, stores: [store]) }
@@ -23,9 +20,10 @@ describe 'Cart', type: :feature, inaccessible: true, js: true do
   it 'allows you to remove an item from the cart' do
     add_to_cart(product)
     line_item = Spree::LineItem.first!
-    within('#line_items') do
-      click_link "delete_line_item_#{line_item.id}"
-    end
+    delete_link_id = "delete_line_item_#{line_item.id}"
+
+    expect(page).to have_link(delete_link_id)
+    find_link(delete_link_id).click
 
     expect(page).not_to have_content('Line items quantity must be an integer')
     expect(page).not_to have_content(product.name)
