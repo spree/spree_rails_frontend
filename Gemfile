@@ -45,7 +45,7 @@ end
 group :test, :development do
   gem 'awesome_print'
   gem 'gem-release'
-  gem 'rubocop', '~> 1.22.3', require: false # bumped
+  gem 'rubocop', '~> 1.84.0', require: false # bumped
   gem 'rubocop-rspec', require: false
   gem 'pry-byebug'
   gem 'selenium-webdriver', '>= 4.11'
