@@ -3,6 +3,22 @@ module Spree
     include BaseHelper
     include InlineSvg::ActionView::Helpers
 
+    class CachedPropertyPresenter < Spree::Filters::PropertyPresenter
+      def initialize(property:, uniq_values:)
+        @property = property
+        @product_properties = Spree::ProductProperty.none
+        @uniq_values = uniq_values
+      end
+
+      def product_properties
+        fail "Not implemented (CachedPropertyPresenter)"
+      end
+
+      def uniq_values
+        @uniq_values
+      end
+    end
+
     def body_class
       @body_class ||= content_for?(:sidebar) ? 'two-col' : 'one-col'
       @body_class
@@ -351,7 +367,11 @@ module Spree
     def available_properties
       @available_properties ||= Rails.cache.fetch("available-properties/#{available_properties_cache_key}") do
         product_properties = ProductProperties::FindAvailable.new(products_scope: products_for_filters).execute
-        Filters::PropertiesPresenter.new(product_properties_scope: product_properties).to_a
+        Filters::PropertiesPresenter.new(product_properties_scope: product_properties).to_a.map do |property_presenter|
+          CachedPropertyPresenter.new(
+            property: property_presenter.send(:property),
+            uniq_values: property_presenter.uniq_values)
+        end
       end
     end
 
